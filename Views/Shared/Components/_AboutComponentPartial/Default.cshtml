@@ -2,7 +2,7 @@
 
     <div class="row narrow section-intro has-bottom-sep">
         <div class="col-full text-center">
-            <h3>Hakkımda</h3>
+            <h1>Hakkımda</h1>
             <p class="lead">@ViewBag.aboutSubDescription</p>
         </div>
     </div>
@@ -23,15 +23,16 @@
     <div class="row about-content about-content--buttons">
 
         <div class="col-six tab-full left">
-            <a href="#0" class="btn btn--primary full-width">CV' mi İndir</a>
-        </div>
-        <div class="col-six tab-full right">
-            <a href="#0" class="btn full-width">Bana Ulaş</a>
-        </div>
+            <a href="/files/Zeynep%20Dilara%20Karaca%20(1).pdf" download class="btn btn--primary full-width">CV' mi
+                İndir</a>
+            </div>
+            <div class="col-six tab-full right">
+                <a href="#contact" class="smoothscroll btn full-width">Bana Ulaş</a>
+            </div>
 
-    </div> <!-- end about-content buttons -->
+        </div> <!-- end about-content buttons -->
 
-    @await Component.InvokeAsync("_ExperienceComponentPartial")
-    <!-- end about-content timeline -->
+        @await Component.InvokeAsync("_ExperienceComponentPartial")
+        <!-- end about-content timeline -->
 
-</section> <!-- end about -->
+    </section> <!-- end about -->

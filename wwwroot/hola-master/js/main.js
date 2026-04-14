@@ -138,6 +138,7 @@
         containerBricks.imagesLoaded(function () {
             containerBricks.masonry({
                 itemSelector: '.masonry__brick',
+                percentPosition: true,
                 resize: true
             });
         });

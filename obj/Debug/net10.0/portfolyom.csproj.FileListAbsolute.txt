@@ -210,13 +210,11 @@ C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\q1x2mkig9y-{0}-rizx1xrhu1
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\3mwtxacbkp-{0}-s2g09a0c5p-s2g09a0c5p.gz
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\xacn0os2uf-{0}-wx3by40xl0-wx3by40xl0.gz
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\v8tit5vg6q-{0}-hcx4ke3esk-hcx4ke3esk.gz
-C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\31vpu0rhx1-{0}-i357jlfwp1-i357jlfwp1.gz
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\jjd1pwlzmi-{0}-zez6hc9aym-zez6hc9aym.gz
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\e1qs4rf2ab-{0}-usgwjifqa1-usgwjifqa1.gz
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\svwcbh7sl1-{0}-dk9wbtlc6h-dk9wbtlc6h.gz
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\9q8ns47kb4-{0}-041crwksfe-041crwksfe.gz
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\98ffvmtftx-{0}-vu3kklfnoq-vu3kklfnoq.gz
-C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\42p7uo3wlc-{0}-8b38qlxh9f-8b38qlxh9f.gz
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\4nhbtkl4en-{0}-u37forbsvx-u37forbsvx.gz
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\zlt508f5lv-{0}-5x0c60txm3-5x0c60txm3.gz
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\1is8x38nxx-{0}-splpe0s415-splpe0s415.gz
@@ -295,3 +293,6 @@ C:\Users\DILOS\portfolyom\obj\Debug\net10.0\refint\portfolyom.dll
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\portfolyom.pdb
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\portfolyom.genruntimeconfig.cache
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\ref\portfolyom.dll
+C:\Users\DILOS\portfolyom\obj\Debug\net10.0\portfolyom.sourcelink.json
+C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\42p7uo3wlc-{0}-x9nhp43j1n-x9nhp43j1n.gz
+C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\31vpu0rhx1-{0}-kj3hrk4yxp-kj3hrk4yxp.gz
