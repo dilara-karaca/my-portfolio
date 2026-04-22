@@ -1,62 +1,7 @@
-/* =================================================================== 
- *
- *  Hola v1.0 Main Stylesheet
- *  10-02-2017
- *  ------------------------------------------------------------------
- *
- *  TOC:
- *  # webfonts and iconfonts
- *  # base style overrides
- *      ## links
- *  # typography & general theme styles
- *      ## lists
- *      ## responsive video container
- *      ## floated image
- *      ## tables
- *      ## spacing
- *      ## pace.js styles - minimal
- *  # forms
- *      ## style placeholder text
- *      ## Change Autocomplete styles in Chrome
- *  # buttons
- *  # additional components
- *      ## alert box
- *      ## additional typo styles
- *      ## skillbars
- *  # common and reusable theme styles 
- *      ## section intro
- *      ## blog-list
- *  # header styles
- *      ## header logo
- *      ## mobile menu toggle
- *      ## navigation
- *  # home
- *      ## home content
- *      ## home social
- *      ## home animations
- *  # about
- *      ## timeline
- *  # works
- *      ## bricks/masonry
- *  # testimonials
- *  # blog
- *  # cta
- *  # stats
- *  # contact
- *  # footer
- *      ## go to top
- *  # blog styles
- *      ## blog page header
- *      ## blog content
- *      ## comments
- *
- * =================================================================== */
 
 
-/* ===================================================================
- * # webfonts and iconfonts - (_document-setup.scss)
- *
- * ------------------------------------------------------------------- */
+
+
 
 @import url("iconic/css/iconmonstr-iconic-font.min.css");
 @import url("fonts.css");
@@ -65,7 +10,7 @@
     --tr-safe-font: "Segoe UI", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Use a Turkish-safe font stack to keep characters like ı/ş/ğ/ç/ö/ü consistent. */
+
 body,
 h1,
 h2,
@@ -98,10 +43,7 @@ em {
 
 
 
-/* ===================================================================
- * # base style overrides - (_document-setup.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 html {
     font-size: 10px;
@@ -129,9 +71,7 @@ body {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## links - (_document-setup.scss) 
- * ------------------------------------------------------------------- */
+
 
 a {
     color: #862121;
@@ -151,10 +91,7 @@ a:focus {
 
 
 
-/* ===================================================================
- * # typography & general theme styles - (_document-setup.scss) 
- * 
- * ------------------------------------------------------------------- */
+
 
 h1,
 h2,
@@ -426,9 +363,7 @@ hr {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## Lists - (_document-setup.scss)  
- * ------------------------------------------------------------------- */
+
 
 ol {
     list-style: decimal;
@@ -488,9 +423,7 @@ dd {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## responsive video container - (_document-setup)
- * ------------------------------------------------------------------- */
+
 
 .video-container {
     position: relative;
@@ -511,9 +444,7 @@ dd {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## floated image - (_document-setup)  
- * ------------------------------------------------------------------- */
+
 
 img.pull-right {
     margin: 1.5rem 0 0 3rem;
@@ -524,9 +455,7 @@ img.pull-left {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## tables - (_document-setup.scss)  
- * ------------------------------------------------------------------- */
+
 
 table {
     border-width: 0;
@@ -567,9 +496,7 @@ td:last-child {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## Spacing - (_document-setup.scss)  
- * ------------------------------------------------------------------- */
+
 
 button,
 .btn {
@@ -598,9 +525,7 @@ form,
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## pace.js styles - minimal  - (_document-setup.scss)
- * ------------------------------------------------------------------- */
+
 
 .pace {
     -webkit-pointer-events: none;
@@ -630,10 +555,7 @@ form,
 
 
 
-/* ===================================================================
- * preloader - (_preloader-2.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 #preloader {
     position: fixed;
@@ -693,10 +615,7 @@ form,
 
 
 
-/* ===================================================================
- * # forms - (_forms.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 fieldset {
     border: none;
@@ -777,7 +696,7 @@ select {
 }
 
 
-/* IE9 and below */
+
 
 .oldie .ss-custom-select::after {
     display: none;
@@ -830,9 +749,7 @@ label>input[type="radio"] {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## style placeholder text - (_forms.scss)
- * ------------------------------------------------------------------- */
+
 
 ::-webkit-input-placeholder {
     color: #6c6c6c;
@@ -840,12 +757,12 @@ label>input[type="radio"] {
 
 :-moz-placeholder {
     color: #6c6c6c;
-    /* Firefox 18- */
+    
 }
 
 ::-moz-placeholder {
     color: #6c6c6c;
-    /* Firefox 19+ */
+    
 }
 
 :-ms-input-placeholder {
@@ -857,9 +774,7 @@ label>input[type="radio"] {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## Change Autocomplete styles in Chrome - (_forms.scss)
- * ------------------------------------------------------------------- */
+
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -875,10 +790,7 @@ select:-webkit-autofill:focus {
 
 
 
-/* ===================================================================
- * # buttons - (_buttons.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 .btn,
 button,
@@ -922,8 +834,7 @@ input[type="button"]:focus {
 }
 
 
-/* button primary
- * ------------------------------------------------- */
+
 
 .btn.btn--primary,
 button.btn--primary,
@@ -957,8 +868,7 @@ input[type="button"].btn--primary:focus {
 }
 
 
-/* button modifiers
- * ------------------------------------------------- */
+
 
 .btn.full-width,
 button.full-width {
@@ -1006,15 +916,10 @@ input::-moz-focus-inner {
 
 
 
-/* =================================================================== 
- * # additional components - (_others.scss)
- *
- * ------------------------------------------------------------------- */
 
 
-/* ------------------------------------------------------------------- 
- * ## alert box - (_alert-box.scss)
- * ------------------------------------------------------------------- */
+
+
 
 .alert-box {
     padding: 2.1rem 4rem 2.1rem 3rem;
@@ -1058,13 +963,10 @@ input::-moz-focus-inner {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## additional typo styles - (_additional-typo.scss)
- * ------------------------------------------------------------------- */
 
 
-/* drop cap 
- * ----------------------------------------------- */
+
+
 
 .drop-cap:first-letter {
     float: left;
@@ -1079,8 +981,7 @@ input::-moz-focus-inner {
 }
 
 
-/* line definition style 
- * ----------------------------------------------- */
+
 
 .lining dt,
 .lining dd {
@@ -1108,8 +1009,7 @@ input::-moz-focus-inner {
 }
 
 
-/* dictionary definition style 
- * ----------------------------------------------- */
+
 
 .dictionary-style dt {
     display: inline;
@@ -1131,18 +1031,7 @@ input::-moz-focus-inner {
 }
 
 
-/** 
- * Pull Quotes
- * -----------
- * markup:
- *
- * <aside class="pull-quote">
- *		<blockquote>
- *			<p></p>
- *		</blockquote>
- *	</aside>
- *
- * --------------------------------------------------------------------- */
+
 
 .pull-quote {
     position: relative;
@@ -1179,18 +1068,7 @@ input::-moz-focus-inner {
 }
 
 
-/** 
- * Stats Tab
- * ---------
- * markup:
- *
- * <ul class="stats-tabs">
- *		<li><a href="#">[value]<em>[name]</em></a></li>
- *	</ul>
- *
- * Extend this object into your markup.
- *
- * --------------------------------------------------------------------- */
+
 
 .stats-tabs {
     padding: 0;
@@ -1231,9 +1109,7 @@ input::-moz-focus-inner {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## skillbars - (_skillbars.scss)
- * ------------------------------------------------------------------- */
+
 
 .skill-bars {
     list-style: none;
@@ -1415,10 +1291,7 @@ input::-moz-focus-inner {
 
 
 
-/* ===================================================================
- * # common and reusable theme styles  - (_common-styles.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 .wide {
     max-width: 1400px;
@@ -1429,9 +1302,7 @@ input::-moz-focus-inner {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## section intro - (_common-styles.scss)
- * ------------------------------------------------------------------- */
+
 
 .section-intro {
     text-align: center;
@@ -1471,10 +1342,7 @@ input::-moz-focus-inner {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * section-intro
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 800px) {
     .section-intro h1 {
@@ -1507,9 +1375,7 @@ input::-moz-focus-inner {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## blog-list - (_common-styles.scss)
- * ------------------------------------------------------------------- */
+
 
 .blog-list {
     margin-top: 6rem;
@@ -1598,10 +1464,7 @@ input::-moz-focus-inner {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * blog-list
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 1200px) {
     .blog-list article:nth-child(2n+1) {
@@ -1631,10 +1494,7 @@ input::-moz-focus-inner {
 
 
 
-/* ===================================================================
- * # header styles - (_site-layout.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 .s-header {
     width: 100%;
@@ -1684,9 +1544,7 @@ input::-moz-focus-inner {
 }
 
 
-/* -------------------------------------------------------------------
- * ## header logo - (_site-layout.css) 
- * ------------------------------------------------------------------- */
+
 
 .header-logo {
     display: inline-block;
@@ -1713,9 +1571,7 @@ input::-moz-focus-inner {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## mobile menu toggle - (_site-layout.css) 
- * ------------------------------------------------------------------- */
+
 
 .header-menu-toggle {
     display: none;
@@ -1807,9 +1663,7 @@ input::-moz-focus-inner {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## navigation - (_site-layout.scss) 
- * ------------------------------------------------------------------- */
+
 
 .header-nav-wrap {
     font-family: "Segoe UI", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
@@ -1906,10 +1760,7 @@ body.theme-dark .theme-toggle::before {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * header
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 800px) {
     .header-logo {
@@ -1959,9 +1810,7 @@ body.theme-dark .theme-toggle::before {
 }
 
 
-/* -------------------------------------------------------------------
- * make sure the menu is visible on larger screens
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (min-width: 801px) {
     .header-nav-wrap {
@@ -1971,10 +1820,7 @@ body.theme-dark .theme-toggle::before {
 
 
 
-/* ===================================================================
- * # home - (_site-layout.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 .s-home {
     width: 100%;
@@ -2016,9 +1862,7 @@ body.theme-dark .theme-toggle::before {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## home content - (_site-layout.scss) 
- * ------------------------------------------------------------------- */
+
 
 .home-content {
     display: table-cell;
@@ -2161,9 +2005,7 @@ body.theme-dark .theme-toggle::before {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## home social - (_site-layout.scss) 
- * ------------------------------------------------------------------- */
+
 
 .home-social {
     font-family: "montserrat-bold", sans-serif;
@@ -2243,8 +2085,7 @@ body.theme-dark .theme-toggle::before {
 }
 
 
-/* animate .home-content__main
- * ------------------------------------------------------------------- */
+
 
 html.ss-preload .home-content__main {
     opacity: 0;
@@ -2261,11 +2102,9 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## home animations - (_site-layout.scss) 
- * ------------------------------------------------------------------- */
 
-/* bounce */
+
+
 
 @-webkit-keyframes bounce {
 
@@ -2300,7 +2139,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* fade in */
+
 
 @-webkit-keyframes fadeIn {
     from {
@@ -2335,7 +2174,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* fade out */
+
 
 @-webkit-keyframes fadeOut {
     from {
@@ -2364,10 +2203,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * home
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 1500px) {
     .home-content h1 {
@@ -2511,10 +2347,7 @@ html.no-csstransitions .home-content__main {
 
 
 
-/* ===================================================================
- * # about - (_site-layout.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 .s-about {
     padding-top: 15rem;
@@ -2536,9 +2369,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## timeline - (_site-layout.scss) 
- * ------------------------------------------------------------------- */
+
 
 .timeline {
     position: relative;
@@ -2619,10 +2450,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * about
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 1000px) {
     .about-content .left {
@@ -2697,10 +2525,7 @@ html.no-csstransitions .home-content__main {
 
 
 
-/* ===================================================================
- * # works - (_site-layout.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 .s-works {
     padding-top: 3rem;
@@ -2709,9 +2534,7 @@ html.no-csstransitions .home-content__main {
     position: relative;
 }
 
-/* ------------------------------------------------------------------- 
- * ## bricks/masonry - (_site-layout.scss)
- * ------------------------------------------------------------------- */
+
 
 .masonry-wrap {
     margin-top: 4.8rem;
@@ -2885,7 +2708,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* on hover */
+
 
 .item-folio:hover .item-folio__thumb a::before {
     opacity: 1;
@@ -2915,10 +2738,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * works
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 1700px) {
     .masonry-wrap {
@@ -2981,10 +2801,7 @@ html.no-csstransitions .home-content__main {
 
 
 
-/* ===================================================================
- * # testimonials - (_site-layout.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 .s-testimonials {
     background-color: #0D0A0B;
@@ -3165,10 +2982,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * testimonials
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 1200px) {
     .testimonials-header h1 {
@@ -3235,10 +3049,7 @@ html.no-csstransitions .home-content__main {
 
 
 
-/* ===================================================================
- * # blog - (_site-layout.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 .s-blog {
     padding-top: 15rem;
@@ -3249,10 +3060,7 @@ html.no-csstransitions .home-content__main {
 
 
 
-/* ===================================================================
- * # cta - (_site-layout.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 .s-cta {
     margin-top: -9rem;
@@ -3278,10 +3086,7 @@ html.no-csstransitions .home-content__main {
 
 
 
-/* ===================================================================
- * # stats - (_site-layout.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 .s-stats {
     background-color: #f1f1f1;
@@ -3372,10 +3177,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * stats
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 1200px) {
     .stats__count {
@@ -3420,10 +3222,7 @@ html.no-csstransitions .home-content__main {
 
 
 
-/* ===================================================================
- * # contact - (_site-layout.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 .s-contact {
     background: linear-gradient(180deg, #f8fbff 0%, #eff4fb 100%);
@@ -3687,7 +3486,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* form loader */
+
 
 .submit-loader {
     display: none;
@@ -3717,9 +3516,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* --------------------------------------------------------------- 
- * loader animation - (_site-layout.scss)
- * --------------------------------------------------------------- */
+
 
 .s-loader {
     margin: 1.2rem auto 3rem;
@@ -3786,10 +3583,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * contact
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 800px) {
     .s-contact {
@@ -3832,10 +3626,7 @@ html.no-csstransitions .home-content__main {
 
 
 
-/* ===================================================================
- * # footer - (_site-layout.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 footer {
     font-family: "montserrat-regular", sans-serif;
@@ -3938,9 +3729,7 @@ footer a:focus {
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## go to top
- * ------------------------------------------------------------------- */
+
 
 .go-top {
     position: fixed;
@@ -3979,10 +3768,7 @@ footer a:focus {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * footer 
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 600px) {
     .footer-social li {
@@ -4026,9 +3812,7 @@ footer a:focus {
 }
 
 
-/* -------------------------------------------------------------------
- * Theme toggle and dark mode
- * ------------------------------------------------------------------- */
+
 
 body.theme-dark {
     background: #110f16;
@@ -4227,10 +4011,7 @@ body.theme-dark footer a:visited {
 
 
 
-/* ===================================================================
- * # blog styles - (_blog.scss)
- *
- * ------------------------------------------------------------------- */
+
 
 article.blog-single {
     background-color: #FFFFFF;
@@ -4242,9 +4023,7 @@ article.blog-single .blog-content {
 }
 
 
-/* -------------------------------------------------------------------
- * ## blog page header
- * ------------------------------------------------------------------- */
+
 
 .page-header {
     background-color: #0D0A0B;
@@ -4285,13 +4064,13 @@ article.blog-single .blog-content {
     height: 100%;
     opacity: .5;
     background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
-    /* FF3.6-15 */
+    
     background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
-    /* Chrome10-25,Safari5.1-6 */
+    
     background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
-    /* IE6-9 */
+    
 }
 
 .page-header__content {
@@ -4427,10 +4206,7 @@ article.blog-single .blog-content {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * blog page header
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 1200px) {
     .page-header__content {
@@ -4495,9 +4271,7 @@ article.blog-single .blog-content {
 }
 
 
-/* -------------------------------------------------------------------
- * ## blog content - _blog.scss
- * ------------------------------------------------------------------- */
+
 
 .blog-content-wrap {
     background-color: #FFFFFF;
@@ -4520,8 +4294,7 @@ article.blog-single .blog-content {
 }
 
 
-/* post tags
- * ------------------------------------------------- */
+
 
 .blog-content__tags {
     margin-top: 6rem;
@@ -4583,8 +4356,7 @@ article.blog-single .blog-content {
 }
 
 
-/* blog single page navigation
- * ------------------------------------------------- */
+
 
 .blog-content__pagenav {
     margin-top: 7.8rem;
@@ -4649,8 +4421,7 @@ article.blog-single .blog-content {
 }
 
 
-/* blog entries navigation
- * ------------------------------------------------- */
+
 
 .blog-entries-nav {
     text-align: center;
@@ -4675,10 +4446,7 @@ article.blog-single .blog-content {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * blog content
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 1200px) {
     .blog-content {
@@ -4780,9 +4548,7 @@ article.blog-single .blog-content {
 }
 
 
-/* -------------------------------------------------------------------
- * ## comments - _blog.scss
- * ------------------------------------------------------------------- */
+
 
 .comments-wrap {
     background-color: #f0f0f0;
@@ -4790,8 +4556,7 @@ article.blog-single .blog-content {
 }
 
 
-/* comments
- * -------------------------------------------------- */
+
 
 #comments {
     padding-top: 1.2rem;
@@ -4878,8 +4643,7 @@ article.blog-single .blog-content {
 }
 
 
-/* comments form
- * ---------------------------- */
+
 
 #comments .respond {
     padding-top: 4.2rem;
@@ -4894,10 +4658,7 @@ article.blog-single .blog-content {
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * comments
- * ------------------------------------------------------------------- */
+
 
 @media only screen and (max-width: 800px) {
     #comments form button {
@@ -4920,9 +4681,7 @@ article.blog-single .blog-content {
 }
 
 
-/* ===================================================================
- * # project cards grid (replaces masonry/image portfolio)
- * ------------------------------------------------------------------- */
+
 
 .proj-cards-grid {
     display: grid;
@@ -4947,7 +4706,7 @@ article.blog-single .blog-content {
     }
 }
 
-/* ---- card base ---- */
+
 .proj-card {
     display: flex;
     flex-direction: column;
@@ -4963,7 +4722,7 @@ article.blog-single .blog-content {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* ---- abbreviation badge ---- */
+
 .proj-card__abbr {
     font-family: "montserrat-bold", sans-serif;
     font-style: italic;
@@ -4973,7 +4732,7 @@ article.blog-single .blog-content {
     line-height: 1;
 }
 
-/* ---- body ---- */
+
 .proj-card__body {
     flex: 1;
 }
@@ -4994,7 +4753,7 @@ article.blog-single .blog-content {
     margin: 0 0 2rem 0;
 }
 
-/* ---- footer / button ---- */
+
 .proj-card__footer {
     margin-top: auto;
 }
@@ -5018,9 +4777,9 @@ article.blog-single .blog-content {
     transform: scale(1.04);
 }
 
-/* ---- colour themes ---- */
 
-/* blue */
+
+
 .proj-card--blue {
     background: linear-gradient(145deg, #eef2ff, #dde6ff);
 }
@@ -5029,7 +4788,7 @@ article.blog-single .blog-content {
     color: #4f46e5;
 }
 
-/* green */
+
 .proj-card--green {
     background: linear-gradient(145deg, #ecfdf5, #d1fae5);
 }
@@ -5046,7 +4805,7 @@ article.blog-single .blog-content {
     background: #047857;
 }
 
-/* orange */
+
 .proj-card--orange {
     background: linear-gradient(145deg, #fff7ed, #ffedd5);
 }
@@ -5063,7 +4822,7 @@ article.blog-single .blog-content {
     background: #c2410c;
 }
 
-/* purple */
+
 .proj-card--purple {
     background: linear-gradient(145deg, #faf5ff, #ede9fe);
 }
@@ -5080,7 +4839,7 @@ article.blog-single .blog-content {
     background: #6d28d9;
 }
 
-/* indigo */
+
 .proj-card--indigo {
     background: linear-gradient(145deg, #eef2ff, #e0e7ff);
 }
@@ -5097,7 +4856,7 @@ article.blog-single .blog-content {
     background: #3730a3;
 }
 
-/* rose */
+
 .proj-card--rose {
     background: linear-gradient(145deg, #fff1f2, #ffe4e6);
 }
@@ -5114,7 +4873,7 @@ article.blog-single .blog-content {
     background: #be123c;
 }
 
-/* pink */
+
 .proj-card--pink {
     background: linear-gradient(145deg, #fdf2f8, #fce7f3);
 }
@@ -5131,7 +4890,7 @@ article.blog-single .blog-content {
     background: #be185d;
 }
 
-/* teal */
+
 .proj-card--teal {
     background: linear-gradient(145deg, #f0fdfa, #ccfbf1);
 }
@@ -5148,9 +4907,7 @@ article.blog-single .blog-content {
     background: #0f766e;
 }
 
-/* ===================================================================
- * # portfolio cards v2 (isolated from legacy masonry rules)
- * ------------------------------------------------------------------- */
+
 
 .portfolio-grid-v2 {
     width: min(1180px, 92%);

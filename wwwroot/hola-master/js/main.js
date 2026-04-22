@@ -1,7 +1,4 @@
-/* ===================================================================
- * Hola - Main JS
- *
- * ------------------------------------------------------------------- */
+
 
 (function ($) {
 
@@ -14,30 +11,25 @@
 
         $WIN = $(window);
 
-    // Add the User Agent to the <html>
-    // will be used for IE10 detection (Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0))
+
     var doc = document.documentElement;
     doc.setAttribute('data-useragent', navigator.userAgent);
 
 
-    /* Preloader
-     * -------------------------------------------------- */
+    
     var ssPreloader = function () {
 
         $("html").addClass('ss-preload');
 
         $WIN.on('load', function () {
 
-            // force page scroll position to top at page refresh
-            // $('html, body').animate({ scrollTop: 0 }, 'normal');
 
-            // will first fade out the loading animation 
+
             $("#loader").fadeOut("slow", function () {
-                // will fade out the whole DIV that covers the website.
+
                 $("#preloader").delay(300).fadeOut("slow");
             });
 
-            // for hero content animations 
             $("html").removeClass('ss-preload');
             $("html").addClass('ss-loaded');
 
@@ -45,8 +37,7 @@
     };
 
 
-    /* pretty print
-     * -------------------------------------------------- */
+    
     var ssPrettyPrint = function () {
         $('pre').addClass('prettyprint');
         $(document).ready(function () {
@@ -55,8 +46,7 @@
     };
 
 
-    /* Move header
-     * -------------------------------------------------- */
+    
     var ssMoveHeader = function () {
 
         var hero = $('.page-hero'),
@@ -88,17 +78,15 @@
 
         });
 
-        // $WIN.on('resize', function() {
-        //     if ($WIN.width() <= 768) {
-        //             hdr.removeClass('sticky offset scrolling');
-        //     }
-        // });
+
+
+
+
 
     };
 
 
-    /* Mobile Menu
-     * ---------------------------------------------------- */
+    
     var ssMobileMenu = function () {
 
         var toggleButton = $('.header-menu-toggle'),
@@ -129,8 +117,7 @@
     };
 
 
-    /* Masonry
-     * ---------------------------------------------------- */
+    
     var ssMasonryFolio = function () {
 
         var containerBricks = $('.masonry');
@@ -145,14 +132,12 @@
     };
 
 
-    /* photoswipe
-     * ----------------------------------------------------- */
+    
     var ssPhotoswipe = function () {
         var items = [],
             $pswp = $('.pswp')[0],
             $folioItems = $('.item-folio');
 
-        // get items
         $folioItems.each(function (i) {
 
             var $folio = $(this),
@@ -179,7 +164,6 @@
             items.push(item);
         });
 
-        // bind click event
         $folioItems.each(function (i) {
 
             $(this).on('click', function (e) {
@@ -189,7 +173,6 @@
                     showHideOpacity: true
                 }
 
-                // initialize PhotoSwipe
                 var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
                 lightBox.init();
             });
@@ -199,8 +182,7 @@
     };
 
 
-    /* slick slider
-     * ------------------------------------------------------ */
+    
     var ssSlickSlider = function () {
 
         $('.testimonials__slider').slick({
@@ -227,8 +209,7 @@
     };
 
 
-    /* Highlight the current section in the navigation bar
-     * ------------------------------------------------------ */
+    
     var ssWaypoints = function () {
 
         var sections = $(".target-section"),
@@ -258,8 +239,7 @@
     };
 
 
-    /* Stat Counter
-     * ------------------------------------------------------ */
+    
     var ssStatCount = function () {
 
         var statSection = $(".s-stats"),
@@ -285,7 +265,6 @@
 
                 }
 
-                // trigger once only
                 this.destroy();
 
             },
@@ -296,8 +275,7 @@
     };
 
 
-    /* Skill Bar Animation
-     * ------------------------------------------------------ */
+    
     var ssSkillBarAnimation = function () {
 
         var aboutSection = $("#about"),
@@ -312,7 +290,6 @@
             handler: function () {
                 skillBars.addClass('is-animated');
 
-                // trigger once only
                 this.destroy();
             },
 
@@ -322,8 +299,7 @@
     };
 
 
-    /* Smooth Scrolling
-     * ------------------------------------------------------ */
+    
     var ssSmoothScroll = function () {
 
         $('.smoothscroll').on('click', function (e) {
@@ -343,15 +319,13 @@
     };
 
 
-    /* Placeholder Plugin Settings
-     * ------------------------------------------------------ */
+    
     var ssPlaceholder = function () {
         $('input, textarea, select').placeholder();
     };
 
 
-    /* Alert Boxes
-     * ------------------------------------------------------ */
+    
     var ssAlertBoxes = function () {
 
         $('.alert-box').on('click', '.alert-box__close', function () {
@@ -361,14 +335,13 @@
     };
 
 
-    /* Contact Form
-     * ------------------------------------------------------ */
+    
     var ssContactForm = function () {
 
-        /* local validation */
+        
         $('#contactForm').validate({
 
-            /* submit via ajax */
+            
             submitHandler: function (form) {
 
                 var sLoader = $('.submit-loader');
@@ -385,14 +358,13 @@
                     },
                     success: function (msg) {
 
-                        // Message was sent
                         if (msg == 'OK') {
                             sLoader.slideUp("slow");
                             $('.message-warning').fadeOut();
                             $('#contactForm').fadeOut();
                             $('.message-success').fadeIn();
                         }
-                        // There was an error
+
                         else {
                             sLoader.slideUp("slow");
                             $('.message-warning').html(msg);
@@ -415,8 +387,7 @@
     };
 
 
-    /* Back to Top
-     * ------------------------------------------------------ */
+    
     var ssBackToTop = function () {
 
         var pxShow = 500,   // height on which the button will show
@@ -425,7 +396,6 @@
             scrollSpeed = 300,   // how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
             goTopButton = $(".go-top")
 
-        // Show or hide the sticky footer button
         $(window).on('scroll', function () {
             if ($(window).scrollTop() >= pxShow) {
                 goTopButton.fadeIn(fadeInTime);
@@ -436,8 +406,7 @@
     };
 
 
-    /* Initialize
-     * ------------------------------------------------------ */
+    
     (function ssInit() {
 
         ssPreloader();

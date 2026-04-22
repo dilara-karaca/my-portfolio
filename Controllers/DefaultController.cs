@@ -11,7 +11,6 @@ namespace portfolyom.Controllers
             _environment = environment;
         }
 
-        // GET: /Default/
         public IActionResult Index()
         {
             return View();

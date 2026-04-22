@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore; // EKLENDİ: EF Core için gerekli
+using Microsoft.EntityFrameworkCore;
 using DAL.Context;
 var builder = WebApplication.CreateBuilder(args);
 

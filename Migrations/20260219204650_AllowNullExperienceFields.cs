@@ -1,13 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace portfolyom.Migrations
 {
-    /// <inheritdoc />
+
     public partial class AllowNullExperienceFields : Migration
     {
-        /// <inheritdoc />
+
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
@@ -43,7 +43,6 @@ namespace portfolyom.Migrations
                 oldType: "nvarchar(max)");
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
