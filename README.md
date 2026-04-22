@@ -44,20 +44,8 @@ Tarayıcıdan erişim: http://localhost:5248
 
 Bu proje ile:
 
- 
-
-  
-
-*  
-
-  Gerçek bir portfolyo uygulaması oluşturmak
-*  
-
-  ASP.NET Core MVC mimarisini etkin şekilde kullanmak
-
-    
-
-    
+* Gerçek bir portfolyo uygulaması oluşturmak
+* ASP.NET Core MVC mimarisini etkin şekilde kullanmak   
 * Frontend ve backend geliştirme becerilerimi sergilemek
 
 ---
