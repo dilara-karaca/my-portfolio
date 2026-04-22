@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("portfolyom")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c154b7b0220784261abbdb8db43b578f8f500d3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d727fdd896e648a259b2dde3360741c3c4ecfd0")]
 [assembly: System.Reflection.AssemblyProductAttribute("portfolyom")]
 [assembly: System.Reflection.AssemblyTitleAttribute("portfolyom")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

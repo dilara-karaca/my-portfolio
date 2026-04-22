@@ -1,9 +1,11 @@
 @model List<Experience>
-<div class="row about-content about-content--timeline">
-
+<div class="row narrow section-intro" style="margin-bottom: 3rem;">
     <div class="col-full text-center">
-        <h3>Deneyimlerim</h3>
+        <h1>Deneyimlerim</h1>
     </div>
+</div>
+
+<div class="row about-content about-content--timeline">
 
     @foreach (var item in Model)
     {
@@ -19,11 +21,17 @@
                         <h3>@item.Title</h3>
                     </div>
                     <div class="timeline__desc">
-                        <p>@item.Description.</p>
+                        <p>Teknoloji Transfer Ofisi'nde yürüttüğüm staj kapsamında araştırma ve inovasyon süreçlerini aktif
+                            olarak deneyimliyorum. Ulusal ve bilimsel araştırma projelerinin başvuru ve planlama aşamalarını
+                            gözlemleyerek proje yönetimi süreçlerine dair pratik bilgi kazanıyorum.</p>
+
+                            <p>Üniversite-sanayi iş birliği projelerinde görev alarak fon başvurusu ve raporlama süreçlerine
+                                destek sağlıyor, kurumsal işleyiş ve ekip dinamikleri hakkında deneyim ediniyorum. Bu süreç,
+                                Ar-Ge ve inovasyon odaklı kariyer hedeflerimi güçlendirmektedir.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    }
+            }
 
-</div>
+        </div>

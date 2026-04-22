@@ -1,5 +1,22 @@
 @model List<Skill>
 
+@functions {
+    string GetSkillLevel(int value)
+    {
+        if (value < 40)
+        {
+            return "Beginner";
+        }
+
+        if (value < 75)
+        {
+            return "Intermediate";
+        }
+
+        return "Advanced";
+    }
+}
+
 <div class="col-six tab-full right">
     <h3>Programlama Dilleri & Teknolojiler</h3>
 
@@ -7,8 +24,10 @@
         @foreach (var item in Model)
         {
             <li>
-                <div class="progress percent@(item.Value)"><span>@item.Value%</span></div>
-                <strong>@item.Title</strong>
+                <div class="skill-card">
+                    <strong>@item.Title</strong>
+                    <span class="skill-card__level">@GetSkillLevel(item.Value)</span>
+                </div>
             </li>
         }
     </ul>

@@ -12,8 +12,12 @@
         <div class="col-six tab-full left">
             <h3>Ben Kimim?</h3>
 
-            @Html.Raw(ViewBag.aboutDetail)
-
+            <p>
+                Yazılım geliştirme alanında kendini geliştiren bir bilgisayar mühendisliği öğrencisiyim. Mobil
+                uygulamalar, gerçek zamanlı sistemler ve yapay zeka üzerine projeler geliştirerek teoriyi pratiğe
+                dönüştürüyorum. Amacım, öğrendiğim teknolojileri gerçek problemlere çözüm üreten sistemlere
+                dönüştürmek.
+            </p>
         </div>
 
         @await Component.InvokeAsync("_SkillComponentPartial")
@@ -23,16 +27,15 @@
     <div class="row about-content about-content--buttons">
 
         <div class="col-six tab-full left">
-            <a href="/files/Zeynep%20Dilara%20Karaca%20(1).pdf" download class="btn btn--primary full-width">CV' mi
-                İndir</a>
-            </div>
-            <div class="col-six tab-full right">
-                <a href="#contact" class="smoothscroll btn full-width">Bana Ulaş</a>
-            </div>
+            <a href="/Default/DownloadCv" class="btn btn--primary full-width">CV' Mİ İNDİR</a>
+        </div>
+        <div class="col-six tab-full right">
+            <a href="#contact" class="smoothscroll btn full-width">Bana Ulaş</a>
+        </div>
 
-        </div> <!-- end about-content buttons -->
+    </div> <!-- end about-content buttons -->
 
-        @await Component.InvokeAsync("_ExperienceComponentPartial")
-        <!-- end about-content timeline -->
+    @await Component.InvokeAsync("_ExperienceComponentPartial")
+    <!-- end about-content timeline -->
 
-    </section> <!-- end about -->
+</section> <!-- end about -->

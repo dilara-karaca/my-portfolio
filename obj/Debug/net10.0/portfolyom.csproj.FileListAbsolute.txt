@@ -294,5 +294,6 @@ C:\Users\DILOS\portfolyom\obj\Debug\net10.0\portfolyom.pdb
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\portfolyom.genruntimeconfig.cache
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\ref\portfolyom.dll
 C:\Users\DILOS\portfolyom\obj\Debug\net10.0\portfolyom.sourcelink.json
-C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\42p7uo3wlc-{0}-x9nhp43j1n-x9nhp43j1n.gz
-C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\31vpu0rhx1-{0}-kj3hrk4yxp-kj3hrk4yxp.gz
+C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\54q8efrl95-{0}-cgu5sun127-cgu5sun127.gz
+C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\42p7uo3wlc-{0}-lhap3stmmt-lhap3stmmt.gz
+C:\Users\DILOS\portfolyom\obj\Debug\net10.0\compressed\31vpu0rhx1-{0}-btvnla8vq1-btvnla8vq1.gz
