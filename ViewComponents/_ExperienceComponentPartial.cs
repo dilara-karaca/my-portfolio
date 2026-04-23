@@ -1,27 +1,27 @@
-using DAL.Context;
 using Microsoft.AspNetCore.Mvc;
 namespace portfolyom.ViewComponents
 {
     public class _ExperienceComponentPartial : ViewComponent
     {
-        private readonly PortfolioContext _context;
-
-        public _ExperienceComponentPartial(PortfolioContext context)
-        {
-            _context = context;
-        }
-
         public IViewComponentResult Invoke()
         {
-            var values = new List<DAL.Entities.Experience>();
-            try
+            var values = new List<DAL.Entities.Experience>
             {
-                values = _context.Experiences.ToList();
-            }
-            catch
-            {
-                // Keep the page alive in production if DB is temporarily unavailable.
-            }
+                new DAL.Entities.Experience
+                {
+                    Head = "2024 - Present",
+                    Title = "Freelance / Personal Projects",
+                    Date = "Web",
+                    Description = "Building portfolio sites and small business web experiences."
+                },
+                new DAL.Entities.Experience
+                {
+                    Head = "2023 - 2024",
+                    Title = "Frontend Practice",
+                    Date = "UI / UX",
+                    Description = "Focused on responsive layouts, component structure, and clean visual systems."
+                }
+            };
 
             return View(values);
         }

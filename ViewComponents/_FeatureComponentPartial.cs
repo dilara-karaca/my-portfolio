@@ -1,29 +1,28 @@
-using DAL.Context;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
 namespace portfolyom.ViewComponents
 {
     public class _FeatureComponentPartial : ViewComponent
     {
-        private readonly PortfolioContext _context;
-
-        public _FeatureComponentPartial(PortfolioContext context)
-        {
-            _context = context;
-        }
-
         public IViewComponentResult Invoke()
         {
-            var values = new List<DAL.Entities.Feature>();
-            try
+            var values = new List<DAL.Entities.Feature>
             {
-                values = _context.Features.ToList();
-            }
-            catch
-            {
-                // Keep the page alive in production if DB is temporarily unavailable.
-            }
+                new DAL.Entities.Feature
+                {
+                    Title = "Fast Delivery",
+                    Description = "Quick iteration with clean, maintainable code."
+                },
+                new DAL.Entities.Feature
+                {
+                    Title = "Responsive Design",
+                    Description = "Layouts that work smoothly on desktop and mobile."
+                },
+                new DAL.Entities.Feature
+                {
+                    Title = "Simple Deployment",
+                    Description = "No database dependency required for hosting."
+                }
+            };
 
             return View(values);
         }
