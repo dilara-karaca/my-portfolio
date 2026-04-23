@@ -16,9 +16,19 @@ namespace portfolyom.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            ViewBag.aboutTitle = _context.Abouts.Select(x => x.Title).FirstOrDefault();
-            ViewBag.aboutSubDescription = _context.Abouts.Select(x => x.SubDescription).FirstOrDefault();
-            ViewBag.aboutDetail = _context.Abouts.Select(x => x.Details).FirstOrDefault();
+            try
+            {
+                ViewBag.aboutTitle = _context.Abouts.Select(x => x.Title).FirstOrDefault();
+                ViewBag.aboutSubDescription = _context.Abouts.Select(x => x.SubDescription).FirstOrDefault();
+                ViewBag.aboutDetail = _context.Abouts.Select(x => x.Details).FirstOrDefault();
+            }
+            catch
+            {
+                ViewBag.aboutTitle = string.Empty;
+                ViewBag.aboutSubDescription = string.Empty;
+                ViewBag.aboutDetail = string.Empty;
+            }
+
             return View();
         }
     }

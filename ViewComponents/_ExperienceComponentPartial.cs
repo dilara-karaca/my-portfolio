@@ -4,11 +4,25 @@ namespace portfolyom.ViewComponents
 {
     public class _ExperienceComponentPartial : ViewComponent
     {
-        PortfolioContext _context = new PortfolioContext();
+        private readonly PortfolioContext _context;
+
+        public _ExperienceComponentPartial(PortfolioContext context)
+        {
+            _context = context;
+        }
 
         public IViewComponentResult Invoke()
         {
-            var values = _context.Experiences.ToList();
+            var values = new List<DAL.Entities.Experience>();
+            try
+            {
+                values = _context.Experiences.ToList();
+            }
+            catch
+            {
+                // Keep the page alive in production if DB is temporarily unavailable.
+            }
+
             return View(values);
         }
     }

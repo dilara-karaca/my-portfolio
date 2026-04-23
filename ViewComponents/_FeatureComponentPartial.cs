@@ -15,7 +15,16 @@ namespace portfolyom.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var values = _context.Features.ToList();
+            var values = new List<DAL.Entities.Feature>();
+            try
+            {
+                values = _context.Features.ToList();
+            }
+            catch
+            {
+                // Keep the page alive in production if DB is temporarily unavailable.
+            }
+
             return View(values);
         }
     }
