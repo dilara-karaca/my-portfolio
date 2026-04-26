@@ -15,6 +15,7 @@
             max-width: 960px;
             margin-left: auto;
             margin-right: auto;
+            padding-left: 6rem;
         }
 
         .experience-timeline {
@@ -32,12 +33,22 @@
             font-weight: 400;
         }
 
+        .experience-timeline .timeline__timeframe,
+        .experience-timeline .timeline__header h5 {
+            margin-bottom: 1.2rem;
+            letter-spacing: .18rem;
+        }
+
         .experience-timeline .timeline__desc p {
             font-size: 1.85rem;
             line-height: 1.9;
         }
 
         @media only screen and (max-width: 800px) {
+            .about-content--timeline {
+                padding-left: 0;
+            }
+
             .experience-timeline .timeline__header,
             .experience-timeline .timeline__desc {
                 max-width: 100%;
@@ -147,7 +158,11 @@
                 <div class="timeline experience-timeline">
                     <article class="timeline__block">
                         <div class="timeline__bullet timeline__bullet--pulse"></div>
-                        <div class="timeline__header"><h3>Stajyer Öğrenci</h3></div>
+                        <div class="timeline__header">
+                            <p class="timeline__timeframe">2025-Devam Ediyor</p>
+                            <h5>İstanbul Sağlık ve Teknoloji Üniversitesi</h5>
+                            <h3>Stajyer Öğrenci</h3>
+                        </div>
                         <div class="timeline__desc">
                             <p>Teknoloji Transfer Ofisi'nde yürüttüğüm staj kapsamında araştırma ve inovasyon süreçlerini aktif olarak deneyimliyorum. Ulusal ve bilimsel araştırma projelerinin başvuru ve planlama aşamalarını gözlemleyerek proje yönetimi süreçlerine dair pratik bilgi kazanıyorum.</p>
                             <p>Üniversite-sanayi iş birliği projelerinde görev alarak fon başvurusu ve raporlama süreçlerine destek sağlıyor, kurumsal işleyiş ve ekip dinamikleri hakkında deneyim ediniyorum.</p>
