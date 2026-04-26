@@ -31,7 +31,6 @@ Canlı site: [https://dilara-karaca.netlify.app/](https://dilara-karaca.netlify.
 ## Kullanılan Teknolojiler
 
 - ASP.NET Core MVC
-- C#
 - HTML5
 - CSS3
 - JavaScript
@@ -47,15 +46,6 @@ Canlı site: [https://dilara-karaca.netlify.app/](https://dilara-karaca.netlify.
 - `wwwroot/` - Statik dosyalar, CSS, JavaScript, görseller ve Netlify için statik `index.html`
 - `screenshots/` - README içinde gösterilecek proje ekran görüntüleri
 
-## Netlify Yayın Ayarları
-
-Netlify üzerinde yayınlamak için:
-
-- Build command: boş bırakılabilir
-- Publish directory: `wwwroot`
-
-Bu ayar ayrıca `netlify.toml` dosyasında tanımlıdır.
-
 ## Yerelde Çalıştırma
 
 ASP.NET Core MVC uygulamasını yerelde çalıştırmak için:
@@ -63,14 +53,6 @@ ASP.NET Core MVC uygulamasını yerelde çalıştırmak için:
 ```bash
 dotnet run
 ```
-
-Netlify için kullanılan statik sürümü görmek için:
-
-```text
-wwwroot/index.html
-```
-
-dosyasını tarayıcıda açabilirsin.
 
 ## Amaç
 
