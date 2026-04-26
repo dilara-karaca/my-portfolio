@@ -1,0 +1,7 @@
+[build]
+  publish = "wwwroot"
+
+[[redirects]]
+  from = "/Default/DownloadCv"
+  to = "/files/Zeynep%20Dilara%20Karaca.pdf"
+  status = 302
