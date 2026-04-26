@@ -6,7 +6,7 @@ namespace portfolyom.ViewComponents
         public IViewComponentResult Invoke()
         {
             ViewBag.aboutTitle = "Frontend Developer";
-            ViewBag.aboutSubDescription = "Clean, responsive, and modern web experiences.";
+            ViewBag.aboutSubDescription = "Teknoloji Odaklı Bilgisayar Mühendisliği Öğrencisi";
             ViewBag.aboutDetail = "I build portfolio and web app interfaces with a focus on speed, clarity, and maintainability.";
 
             return View();
