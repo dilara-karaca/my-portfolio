@@ -10,6 +10,40 @@
     <link rel="stylesheet" href="hola-master/css/base.css">
     <link rel="stylesheet" href="hola-master/css/vendor.css">
     <link rel="stylesheet" href="hola-master/css/main.css">
+    <style>
+        .about-content--timeline {
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .experience-timeline {
+            max-width: 760px;
+            margin-left: 0;
+        }
+
+        .experience-timeline .timeline__header,
+        .experience-timeline .timeline__desc {
+            max-width: min(56rem, 52vw);
+        }
+
+        .experience-timeline .timeline__header h3 {
+            font-size: 3rem;
+            font-weight: 400;
+        }
+
+        .experience-timeline .timeline__desc p {
+            font-size: 1.85rem;
+            line-height: 1.9;
+        }
+
+        @media only screen and (max-width: 800px) {
+            .experience-timeline .timeline__header,
+            .experience-timeline .timeline__desc {
+                max-width: 100%;
+            }
+        }
+    </style>
 
     <script src="hola-master/js/modernizr.js"></script>
     <script src="hola-master/js/pace.min.js"></script>
