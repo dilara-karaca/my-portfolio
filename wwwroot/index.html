@@ -68,6 +68,90 @@
             background-color: rgba(248, 237, 244, 0.95) !important;
             z-index: 1000;
         }
+
+        .portfolio-card-v2 {
+            height: 65rem;
+            cursor: pointer;
+        }
+
+        .portfolio-card-v2__body {
+            min-height: 0;
+        }
+
+        .portfolio-card-v2__desc {
+            display: -webkit-box;
+            -webkit-line-clamp: 8;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .project-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2.4rem;
+            background: rgba(17, 15, 22, 0.42);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+        }
+
+        .project-modal.is-open {
+            display: flex;
+        }
+
+        .project-modal__dialog {
+            position: relative;
+            width: min(76rem, 100%);
+            max-height: min(86vh, 78rem);
+            overflow: auto;
+            border-radius: 1.2rem;
+            box-shadow: 0 2.8rem 8rem rgba(20, 20, 35, 0.28);
+        }
+
+        .project-modal__close {
+            position: absolute;
+            top: 1.4rem;
+            right: 1.4rem;
+            z-index: 1;
+            width: 4rem;
+            height: 4rem;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.88);
+            color: #111216;
+            font-size: 2.4rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .project-modal .portfolio-card-v2 {
+            width: 100%;
+            height: auto;
+            cursor: default;
+            margin: 0;
+        }
+
+        .project-modal .portfolio-card-v2__desc {
+            display: block;
+            overflow: visible;
+        }
+
+        .project-modal .portfolio-card-v2__footer {
+            margin-top: 2.4rem;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .portfolio-card-v2 {
+                height: 58rem;
+            }
+
+            .portfolio-card-v2__desc {
+                -webkit-line-clamp: 7;
+            }
+        }
     </style>
 
     <script src="hola-master/js/modernizr.js"></script>
@@ -327,6 +411,13 @@
         </div>
     </footer>
 
+    <div class="project-modal" data-project-modal aria-hidden="true">
+        <div class="project-modal__dialog" role="dialog" aria-modal="true" aria-label="Proje detayı">
+            <button class="project-modal__close" type="button" data-project-modal-close aria-label="Kapat">×</button>
+            <div data-project-modal-content></div>
+        </div>
+    </div>
+
     <script src="hola-master/js/jquery-3.2.1.min.js"></script>
     <script src="hola-master/js/plugins.js"></script>
     <script src="hola-master/js/main.js"></script>
@@ -335,5 +426,71 @@
         document.body.classList.remove("theme-dark");
     </script>
     <script src="hola-master/js/theme-toggle.js"></script>
+    <script>
+        (function () {
+            var modal = document.querySelector("[data-project-modal]");
+            var modalContent = document.querySelector("[data-project-modal-content]");
+            var closeButton = document.querySelector("[data-project-modal-close]");
+            var cards = document.querySelectorAll(".portfolio-card-v2");
+
+            if (!modal || !modalContent || !closeButton || !cards.length) {
+                return;
+            }
+
+            var closeModal = function () {
+                modal.classList.remove("is-open");
+                modal.setAttribute("aria-hidden", "true");
+                modalContent.innerHTML = "";
+                document.body.style.overflow = "";
+            };
+
+            var openModal = function (card) {
+                var clone = card.cloneNode(true);
+                clone.removeAttribute("tabindex");
+                clone.removeAttribute("role");
+                clone.classList.add("portfolio-card-v2--modal");
+
+                modalContent.innerHTML = "";
+                modalContent.appendChild(clone);
+                modal.classList.add("is-open");
+                modal.setAttribute("aria-hidden", "false");
+                document.body.style.overflow = "hidden";
+                closeButton.focus();
+            };
+
+            cards.forEach(function (card) {
+                card.setAttribute("tabindex", "0");
+                card.setAttribute("role", "button");
+
+                card.addEventListener("click", function (event) {
+                    if (event.target.closest("a, button")) {
+                        return;
+                    }
+
+                    openModal(card);
+                });
+
+                card.addEventListener("keydown", function (event) {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        openModal(card);
+                    }
+                });
+            });
+
+            closeButton.addEventListener("click", closeModal);
+            modal.addEventListener("click", function (event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape" && modal.classList.contains("is-open")) {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
