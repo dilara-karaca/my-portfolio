@@ -82,13 +82,25 @@
 
         .portfolio-card-v2__body {
             min-height: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
 
         .portfolio-card-v2__desc {
             display: -webkit-box;
-            -webkit-line-clamp: 5;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .portfolio-card-v2__tech-list {
+            margin-top: auto;
+        }
+
+        .portfolio-card-v2__footer {
+            flex: 0 0 auto;
         }
 
         .project-modal {
@@ -155,7 +167,7 @@
             }
 
             .portfolio-card-v2__desc {
-                -webkit-line-clamp: 4;
+                -webkit-line-clamp: 3;
             }
         }
     </style>
