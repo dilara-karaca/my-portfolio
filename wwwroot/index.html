@@ -130,20 +130,32 @@
         }
 
         .project-modal__close {
+            -webkit-appearance: none;
+            appearance: none;
             position: absolute;
             top: 1.8rem;
             right: 2rem;
             z-index: 1;
-            width: auto;
-            height: auto;
-            border: 0;
-            border-radius: 0;
-            background: transparent;
-            color: #111216;
+            min-width: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            color: #111216 !important;
             font-size: 3rem;
             line-height: 1;
             cursor: pointer;
-            padding: 0;
+            padding: 0 !important;
+        }
+
+        .project-modal__close:hover,
+        .project-modal__close:focus,
+        .project-modal__close:active {
+            background: transparent !important;
+            box-shadow: none !important;
+            outline: none;
         }
 
         .project-modal .portfolio-card-v2 {
