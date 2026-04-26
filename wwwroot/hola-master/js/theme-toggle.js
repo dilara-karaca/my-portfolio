@@ -16,16 +16,11 @@
         toggleButton.setAttribute("aria-pressed", String(isDark));
     };
 
-    var savedTheme = localStorage.getItem(STORAGE_KEY);
-    if (savedTheme === "dark" || savedTheme === "light") {
-        applyTheme(savedTheme);
-    } else {
-        applyTheme("light");
-    }
+    localStorage.removeItem(STORAGE_KEY);
+    applyTheme("light");
 
     toggleButton.addEventListener("click", function () {
         var nextTheme = body.classList.contains("theme-dark") ? "light" : "dark";
         applyTheme(nextTheme);
-        localStorage.setItem(STORAGE_KEY, nextTheme);
     });
 })();
