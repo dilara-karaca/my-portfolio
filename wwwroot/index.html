@@ -546,6 +546,43 @@
     <script src="hola-master/js/theme-toggle.js"></script>
     <script>
         (function () {
+            var links = document.querySelectorAll('a.smoothscroll[href^="#"]');
+
+            links.forEach(function (link) {
+                link.addEventListener("click", function (event) {
+                    var targetId = link.getAttribute("href");
+
+                    if (!targetId || targetId === "#0") {
+                        return;
+                    }
+
+                    var target = document.querySelector(targetId);
+
+                    if (!target) {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    var header = document.querySelector(".s-header");
+                    var headerHeight = header ? header.offsetHeight : 0;
+                    var targetTop = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                    window.scrollTo({
+                        top: Math.max(targetTop, 0),
+                        behavior: "smooth"
+                    });
+
+                    if (window.history && typeof window.history.pushState === "function") {
+                        window.history.pushState(null, "", targetId);
+                    }
+                }, true);
+            });
+        })();
+    </script>
+    <script>
+        (function () {
             var modal = document.querySelector("[data-project-modal]");
             var modalContent = document.querySelector("[data-project-modal-content]");
             var closeButton = document.querySelector("[data-project-modal-close]");
