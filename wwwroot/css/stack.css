@@ -1,0 +1,534 @@
+.is-stacked {
+    background: #f9f4ff;
+}
+
+.page-stack {
+    position: relative;
+}
+
+.stack-card {
+    position: sticky;
+    top: 0;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100lvh;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.page-stack > .stack-card:nth-of-type(1) { z-index: 1; }
+.page-stack > .stack-card:nth-of-type(2) { z-index: 2; }
+.page-stack > .stack-card:nth-of-type(3) { z-index: 3; }
+.page-stack > .stack-card:nth-of-type(4) { z-index: 4; }
+.page-stack > .stack-card:nth-of-type(5) { z-index: 5; }
+
+.stack-spacer {
+    height: 72vh;
+    pointer-events: none;
+}
+
+.stack-card--sheet {
+    border-radius: 2.8rem 2.8rem 0 0;
+    box-shadow: 0 -2.2rem 4.8rem rgba(90, 52, 72, 0.14);
+}
+
+.is-stacked .s-about.stack-card,
+.is-stacked .stack-card--experience,
+.is-stacked .s-works.stack-card,
+.is-stacked .s-contact.stack-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 9.6rem 6vw 3.2rem;
+}
+
+.is-stacked .stack-card--about {
+    background:
+        radial-gradient(circle at 12% 18%, rgba(244, 220, 234, 0.7), transparent 42%),
+        #fffafc;
+}
+
+.is-stacked .stack-card--experience {
+    background: linear-gradient(120deg, #e7f0ff 0%, #f7f1fb 48%, #e7f6ef 100%);
+    background-size: 180% 180%;
+    animation: experience-wash 16s ease-in-out infinite;
+}
+
+@keyframes experience-wash {
+    0%,
+    100% {
+        background-position: 0% 40%;
+    }
+
+    50% {
+        background-position: 100% 70%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .is-stacked .stack-card--experience {
+        animation: none;
+    }
+}
+
+.is-stacked .stack-card--works {
+    background:
+        radial-gradient(circle at 88% 12%, rgba(211, 228, 255, 0.65), transparent 36%),
+        #ffffff;
+}
+
+.is-stacked .s-contact.stack-card {
+    background: linear-gradient(165deg, #f9f4ff 0%, #f6e8f0 55%, #eef6f3 100%);
+    padding-bottom: 2rem;
+}
+
+.is-stacked .s-home.stack-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 100lvh;
+    padding: 10rem 8vw 6rem;
+}
+
+.is-stacked .s-home .overlay,
+.is-stacked .s-home .shadow-overlay {
+    pointer-events: none;
+}
+
+.is-stacked .s-home .home-content {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.is-stacked .s-home .home-content__main {
+    display: grid;
+    grid-template-columns: minmax(0, 68rem) auto;
+    align-items: center;
+    column-gap: 6rem;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.is-stacked .s-home .home-content h3,
+.is-stacked .s-home .home-content h1,
+.is-stacked .s-home .home-content__scroll,
+.is-stacked .s-home .home-content__main .home-social {
+    grid-column: 1;
+    justify-self: start;
+    text-align: left;
+}
+
+.is-stacked .home-content h1 {
+    font-size: clamp(4.6rem, 6vw, 7.2rem);
+}
+
+.is-stacked .home-content__buttons {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-self: end;
+    align-self: center;
+    gap: 1.4rem;
+    width: 22rem;
+    margin: 0;
+    text-align: center;
+}
+
+.is-stacked .home-content__buttons .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.is-stacked .home-social {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    gap: 1.8rem;
+    margin: 2.4rem 0 0;
+    padding: 0;
+}
+
+.is-stacked .home-social::after {
+    display: none;
+}
+
+.is-stacked .home-social li {
+    height: auto;
+}
+
+.is-stacked .home-social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    width: auto;
+    height: auto;
+}
+
+.is-stacked .home-social i,
+.is-stacked .home-social span {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    line-height: 1;
+    font-size: 1.5rem;
+}
+
+.is-stacked .home-content__scroll {
+    position: static;
+    margin-top: 3.6rem;
+}
+
+.is-stacked .stack-card .row,
+.is-stacked .stack-card .portfolio-grid-v2,
+.is-stacked .stack-card .contact__main {
+    width: min(108rem, 100%);
+    max-width: 108rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.is-stacked .stack-card .section-intro,
+.is-stacked .stack-card .section-intro h1,
+.is-stacked .stack-card .section-intro .lead,
+.is-stacked .stack-card .section-intro .col-full {
+    text-align: center;
+}
+
+.is-stacked .stack-card--about .about-content,
+.is-stacked .stack-card--about .about-content--buttons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4.8rem;
+    width: min(108rem, 100%);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.is-stacked .stack-card--about .about-content .col-six {
+    float: none;
+    width: auto;
+    flex: 1 1 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.is-stacked .stack-card--about .about-content--buttons {
+    align-items: stretch;
+    margin-top: 3.2rem;
+}
+
+.is-stacked .stack-card .section-intro {
+    margin-bottom: 1.6rem;
+}
+
+.is-stacked .stack-card--about .section-intro.has-bottom-sep {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.is-stacked .stack-card--about .section-intro .lead {
+    margin-bottom: 0;
+}
+
+.is-stacked .stack-card--about .section-intro.has-bottom-sep::after {
+    content: none;
+}
+
+.is-stacked .stack-card .section-intro h1,
+.is-stacked .stack-card--experience h1 {
+    font-size: clamp(3.6rem, 4.5vw, 5.6rem);
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+}
+
+.is-stacked .stack-card .lead {
+    font-size: 1.7rem;
+    line-height: 1.6;
+}
+
+.is-stacked .stack-card--about .about-content:not(.about-content--buttons) {
+    margin-top: 3.2rem;
+}
+
+.is-stacked .stack-card--about .about-content h3 {
+    margin-top: 0;
+}
+
+.is-stacked .stack-card--about .skill-bars {
+    margin: 1.2rem 0 0;
+    gap: 1rem;
+}
+
+.skill-card {
+    --mx: 50%;
+    --my: 50%;
+}
+
+.skill-card::after {
+    top: var(--my);
+    left: var(--mx);
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(214, 120, 168, 0.55) 0%, rgba(214, 120, 168, 0) 68%);
+    filter: blur(6px);
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.skill-card strong,
+.skill-card .skill-card__level {
+    position: relative;
+    z-index: 1;
+}
+
+body.theme-dark .skill-card::after {
+    background: radial-gradient(circle, rgba(244, 196, 224, 0.5) 0%, rgba(244, 196, 224, 0) 70%);
+}
+
+.is-stacked .about-content--buttons {
+    margin-top: 2rem;
+}
+
+.is-stacked .experience-grid {
+    width: min(108rem, 100%);
+    margin: 1.6rem auto 0;
+    text-align: left;
+}
+
+.is-stacked .experience-card .timeline__desc,
+.is-stacked .stack-card--experience .timeline__desc {
+    padding: 0;
+    text-align: left;
+}
+
+.is-stacked .experience-card .timeline__desc p {
+    padding-bottom: 0;
+}
+
+body.theme-dark .experience-card {
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+}
+
+body.theme-dark .experience-card:hover,
+body.theme-dark .experience-card:focus-within {
+    box-shadow: 0 2.2rem 4.4rem rgba(0, 0, 0, 0.28);
+}
+
+body.theme-dark .experience-card .timeline__header h3 {
+    color: rgba(239, 228, 238, 0.62);
+}
+
+.is-stacked .stack-card--works .section-intro {
+    margin-bottom: 0.4rem;
+}
+
+.is-stacked .stack-card .portfolio-grid-v2 {
+    padding: 0;
+    gap: 1.2rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.is-stacked .stack-card .portfolio-card-v2 {
+    height: auto;
+    min-height: 0;
+}
+
+.is-stacked .stack-card .portfolio-card-v2__top {
+    min-height: 0;
+    padding: 1.3rem 1.4rem 0.4rem;
+    font-size: 1.2rem;
+}
+
+.is-stacked .stack-card .portfolio-card-v2__body {
+    padding-top: 0.4rem;
+}
+
+.is-stacked .stack-card .portfolio-card-v2__title {
+    font-size: 1.55rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+}
+
+.is-stacked .stack-card .portfolio-card-v2__desc {
+    font-size: 1.25rem;
+    line-height: 1.45;
+    -webkit-line-clamp: 2;
+}
+
+.is-stacked .stack-card .portfolio-card-v2__tech {
+    font-size: 1rem;
+    padding: 0.4rem 0.7rem;
+}
+
+.is-stacked .stack-card .portfolio-card-v2__footer {
+    padding: 0.8rem 1.4rem 1.2rem;
+}
+
+.is-stacked .stack-card .portfolio-card-v2__btn {
+    padding: 0.65rem 1.2rem;
+    font-size: 1.05rem;
+}
+
+.is-stacked .stack-card .contact__item-head {
+    justify-content: center;
+}
+
+.is-stacked .stack-card footer {
+    background: transparent;
+    padding: 1.6rem 0 0;
+    margin-top: 1rem;
+    color: #7a3e5c;
+}
+
+.is-stacked .stack-card footer .footer-social li a,
+.is-stacked .stack-card footer a {
+    color: #7a3e5c;
+}
+
+body.theme-dark.is-stacked {
+    background: #15111d;
+}
+
+body.theme-dark .stack-card--about {
+    background:
+        radial-gradient(circle at 12% 18%, rgba(147, 94, 127, 0.28), transparent 46%),
+        #1a1522;
+}
+
+body.theme-dark .stack-card--experience {
+    background: linear-gradient(165deg, #1e1728 0%, #1d2330 100%);
+}
+
+body.theme-dark .stack-card--works {
+    background:
+        radial-gradient(circle at 88% 12%, rgba(87, 121, 178, 0.22), transparent 40%),
+        #1a1522;
+}
+
+body.theme-dark .s-contact.stack-card {
+    background: linear-gradient(165deg, #15111d 0%, #241826 55%, #1a2420 100%);
+}
+
+body.theme-dark .stack-card--sheet {
+    box-shadow: 0 -2.2rem 4.8rem rgba(0, 0, 0, 0.35);
+}
+
+body.theme-dark.is-stacked .stack-card footer,
+body.theme-dark.is-stacked .stack-card footer .footer-social li a,
+body.theme-dark.is-stacked .stack-card footer a {
+    color: #f0c9df;
+}
+
+@media only screen and (max-width: 1100px) {
+    .is-stacked .stack-card .portfolio-grid-v2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .is-stacked .stack-card--works {
+        height: auto;
+        min-height: 100lvh;
+        overflow: visible;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .stack-spacer {
+        height: 42vh;
+    }
+
+    .is-stacked .s-home .home-content,
+    .is-stacked .home-social,
+    .is-stacked .s-about.stack-card,
+    .is-stacked .stack-card--experience,
+    .is-stacked .s-works.stack-card,
+    .is-stacked .s-contact.stack-card {
+        width: auto;
+        padding-left: 2.4rem;
+        padding-right: 2.4rem;
+    }
+
+    .is-stacked .home-social {
+        width: auto;
+        margin: 2rem 0 0;
+        flex-wrap: wrap;
+    }
+
+    .is-stacked .home-content h1 {
+        font-size: 4.2rem;
+    }
+
+    .is-stacked .s-home.stack-card {
+        padding-left: 2.4rem;
+        padding-right: 2.4rem;
+    }
+
+    .is-stacked .s-home .home-content__main {
+        display: block;
+        text-align: left;
+    }
+
+    .is-stacked .home-content__buttons {
+        position: static;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        margin-top: 2.4rem;
+    }
+
+    .is-stacked .home-content__buttons .btn {
+        width: 100%;
+    }
+
+    .is-stacked .stack-card--about .about-content,
+    .is-stacked .about-content--buttons {
+        display: block;
+    }
+
+    .is-stacked .stack-card--about .col-six {
+        width: 100%;
+        margin-bottom: 1.6rem;
+    }
+
+    .stack-card--about,
+    .stack-card--experience,
+    .s-contact.stack-card {
+        height: auto;
+        min-height: 100lvh;
+        overflow: visible;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stack-card {
+        position: relative;
+        height: auto;
+        min-height: 100lvh;
+        overflow: visible;
+    }
+
+    .stack-spacer {
+        display: none;
+    }
+}

@@ -12,63 +12,146 @@
     <link rel="stylesheet" href="hola-master/css/vendor.css">
     <link rel="stylesheet" href="hola-master/css/main.css">
     <style>
-        .about-content--timeline {
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+        .experience-grid {
+            width: min(108rem, 100%);
+            margin: 1.6rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2.4rem;
+            align-items: stretch;
+            text-align: left;
         }
 
-        .experience-timeline {
-            max-width: 760px;
-            margin-left: 0;
+        .experience-card {
+            --mx: 50%;
+            --my: 18%;
+            --rx: 0deg;
+            --ry: 0deg;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 3.2rem 3.4rem 2.8rem;
+            overflow: hidden;
+            background: linear-gradient(165deg, #ffffff 0%, #eef4ff 100%);
+            border: 1px solid rgba(142, 180, 239, 0.45);
+            border-radius: 1.6rem;
+            box-shadow: 0 1.4rem 3.2rem rgba(70, 90, 140, 0.1);
+            text-align: left;
+            transform: perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry));
+            transition: transform .18s ease-out, box-shadow .35s ease, border-color .35s ease;
+            will-change: transform;
         }
 
-        .experience-timeline .timeline__header,
-        .experience-timeline .timeline__desc {
-            max-width: min(56rem, 52vw);
+        .experience-card:nth-child(2) {
+            background: linear-gradient(165deg, #ffffff 0%, #fdf2f7 100%);
+            border-color: rgba(214, 150, 184, 0.5);
+            box-shadow: 0 1.4rem 3.2rem rgba(140, 70, 100, 0.1);
         }
 
-        .experience-timeline .timeline__header h3 {
-            font-size: 3rem;
-            font-weight: 400;
+        .experience-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: .55rem;
+            background: linear-gradient(90deg, #6f9eef, #7dcec0);
         }
 
-        .experience-timeline .timeline__timeframe,
-        .experience-timeline .timeline__header h5 {
-            margin-bottom: 1.2rem;
-            letter-spacing: .18rem;
+        .experience-card:nth-child(2)::before {
+            background: linear-gradient(90deg, #e08ab4, #7dcec0);
         }
 
-        .experience-timeline .timeline__desc p {
-            font-size: 1.85rem;
-            line-height: 1.9;
+        .experience-card::after {
+            content: "";
+            position: absolute;
+            top: var(--my);
+            left: var(--mx);
+            width: 36rem;
+            height: 36rem;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(111, 158, 239, 0.72) 0%, rgba(111, 158, 239, 0) 68%);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            pointer-events: none;
+            filter: blur(4px);
+            transition: opacity .25s ease;
         }
 
-        @media only screen and (max-width: 800px) {
+        .experience-card:nth-child(2)::after {
+            background: radial-gradient(circle, rgba(224, 138, 180, 0.7) 0%, rgba(224, 138, 180, 0) 68%);
+        }
 
-            .experience-timeline .timeline__header,
-            .experience-timeline .timeline__desc {
-                max-width: 100%;
+        .experience-card:hover::after,
+        .experience-card:focus-within::after {
+            opacity: 1;
+        }
+
+        .experience-card:hover,
+        .experience-card:focus-within {
+            box-shadow: 0 2.8rem 5rem rgba(70, 50, 80, 0.18);
+        }
+
+        .experience-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .experience-card,
+            .experience-card::after,
+            .stack-card--experience {
+                transition: none;
+                animation: none;
             }
         }
 
-        #preloader,
-        #loader {
-            display: none !important;
+        .experience-card .timeline__timeframe {
+            margin: 0 0 1.4rem;
+            font-size: 1.25rem;
+            letter-spacing: .12rem;
         }
 
-        .s-header,
-        .s-header.offset,
-        .s-header.sticky,
-        .s-header.sticky.scrolling {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0;
-            opacity: 1 !important;
-            visibility: visible !important;
-            transform: none !important;
-            background-color: rgba(248, 237, 244, 0.95) !important;
-            z-index: 1000;
+        .experience-card .timeline__header h5 {
+            margin: 0 0 0.5rem;
+            font-family: "librebaskerville-bold", serif;
+            font-size: 2.5rem;
+            line-height: 1.25;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+
+        .experience-card .timeline__header h3 {
+            margin: 0 0 1.6rem;
+            font-family: "montserrat-regular", sans-serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: .08rem;
+            text-transform: uppercase;
+            color: rgba(61, 42, 58, 0.55);
+        }
+
+        .experience-card .timeline__desc {
+            padding: 0;
+            text-align: left;
+        }
+
+        .experience-card .timeline__desc p {
+            margin: 0 0 1.2rem;
+            padding: 0;
+            font-size: 1.6rem;
+            line-height: 1.65;
+            text-align: left;
+        }
+
+        .experience-card .timeline__desc p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media only screen and (max-width: 800px) {
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .portfolio-card-v2 {
@@ -186,19 +269,27 @@
     </style>
 
     <script src="hola-master/js/modernizr.js"></script>
-    <script src="hola-master/js/pace.min.js"></script>
+
+    <link rel="stylesheet" href="css/stack.css">
 
     <link rel="shortcut icon" href="assets/dk.icon.png" type="image/png">
     <link rel="icon" href="assets/dk.icon.png" type="image/png">
 </head>
 
-<body id="top">
+<body id="top" class="is-stacked">
+    <script>
+        try {
+            if (localStorage.getItem("portfolio-theme") === "dark") {
+                document.body.classList.add("theme-dark");
+            }
+        } catch (error) {}
+    </script>
     <header class="s-header">
         <nav class="header-nav-wrap">
             <ul class="header-nav">
                 <li class="current"><a class="smoothscroll" href="#home" title="home">ANA SAYFA</a></li>
                 <li><a class="smoothscroll" href="#about" title="about">HAKKIMDA</a></li>
-                <li><a class="smoothscroll" href="#works-title" title="works">PROJELERİM</a></li>
+                <li><a class="smoothscroll" href="#works" title="works">PROJELERİM</a></li>
                 <li><a class="smoothscroll" href="#contact" title="contact">İLETİŞİM</a></li>
             </ul>
         </nav>
@@ -210,7 +301,8 @@
         <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
     </header>
 
-    <section id="home" class="s-home page-hero target-section">
+    <div class="page-stack">
+    <section id="home" class="s-home page-hero target-section stack-card">
         <div class="overlay"></div>
         <div class="shadow-overlay"></div>
 
@@ -220,33 +312,34 @@
 
                 <h1>
                     Dilara Karaca<br>
-                    <span class="home-content__subtitle">Computer Engineer · Full-Stack &amp; Embedded System</span>
-                    <span class="home-content__tagline">Kullanıcı odaklı arayüzler geliştirmeyi ve gerçek dünya
-                        problemlerine yazılım çözümleri üretmeyi hedefliyorum.</span>
+                    <span class="home-content__subtitle">Full-Stack &amp; Gömülü Sistemler</span>
+                    <span class="home-content__tagline">Sahada çalışan arayüzler ve sistemler
+                        geliştiriyorum.</span>
                 </h1>
 
                 <div class="home-content__buttons">
-                    <a href="#works-title" class="smoothscroll btn btn--stroke">Son Projelerim</a>
+                    <a href="#works" class="smoothscroll btn btn--stroke">Son Projelerim</a>
                     <a href="#about" class="smoothscroll btn btn--stroke">Hakkımda</a>
                 </div>
 
                 <div class="home-content__scroll">
                     <a href="#about" class="scroll-link smoothscroll"><span>Aşağı İn</span></a>
                 </div>
+
+                <ul class="home-social">
+                    <li><a href="https://www.linkedin.com/in/dilarakaraca34/" target="_blank" rel="noopener noreferrer"><i
+                                class="im im-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a></li>
+                    <li><a href="https://github.com/dilara-karaca" target="_blank" rel="noopener noreferrer"><i
+                                class="im im-github" aria-hidden="true"></i><span>GitHub</span></a></li>
+                    <li><a href="https://www.instagram.com/dilaraa.karaca/" target="_blank" rel="noopener noreferrer"><i
+                                class="im im-instagram" aria-hidden="true"></i><span>Instagram</span></a></li>
+                </ul>
             </div>
         </div>
-
-        <ul class="home-social">
-            <li><a href="https://www.linkedin.com/in/dilarakaraca34/" target="_blank" rel="noopener noreferrer"><i
-                        class="im im-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a></li>
-            <li><a href="https://github.com/dilara-karaca" target="_blank" rel="noopener noreferrer"><i
-                        class="im im-github" aria-hidden="true"></i><span>GitHub</span></a></li>
-            <li><a href="https://www.instagram.com/dilaraa.karaca/" target="_blank" rel="noopener noreferrer"><i
-                        class="im im-instagram" aria-hidden="true"></i><span>Instagram</span></a></li>
-        </ul>
     </section>
+    <div class="stack-spacer" aria-hidden="true"></div>
 
-    <section id="about" class="s-about target-section">
+    <section id="about" class="s-about target-section stack-card stack-card--sheet stack-card--about">
         <div class="row narrow section-intro has-bottom-sep">
             <div class="col-full text-center">
                 <h1>Hakkımda</h1>
@@ -300,42 +393,48 @@
                     İNDİR</a>
             </div>
             <div class="col-six tab-full right">
-                <a href="#contact" class="smoothscroll btn full-width">Bana Ulaş</a>
-            </div>
-        </div>
-
-        <div class="row narrow section-intro experience-intro">
-            <div class="col-full">
-                <h1>Deneyimlerim</h1>
-            </div>
-        </div>
-
-        <div class="row about-content about-content--timeline">
-            <div class="col-full">
-                <div class="timeline experience-timeline">
-                    <article class="timeline__block">
-                        <div class="timeline__bullet timeline__bullet--pulse"></div>
-                        <div class="timeline__header">
-                            <p class="timeline__timeframe">2025-Devam Ediyor</p>
-                            <h5>İstanbul Sağlık ve Teknoloji Üniversitesi</h5>
-                            <h3>Stajyer Öğrenci</h3>
-                        </div>
-                        <div class="timeline__desc">
-                            <p>Teknoloji Transfer Ofisi'nde yürüttüğüm staj kapsamında araştırma ve inovasyon
-                                süreçlerini aktif olarak deneyimliyorum. Ulusal ve bilimsel araştırma projelerinin
-                                başvuru ve planlama aşamalarını gözlemleyerek proje yönetimi süreçlerine dair pratik
-                                bilgi kazanıyorum.</p>
-                            <p>Üniversite-sanayi iş birliği projelerinde görev alarak fon başvurusu ve raporlama
-                                süreçlerine destek sağlıyor, kurumsal işleyiş ve ekip dinamikleri hakkında deneyim
-                                ediniyorum.</p>
-                        </div>
-                    </article>
-                </div>
+                <a href="#contact" class="smoothscroll btn btn--primary full-width">Bana Ulaş</a>
             </div>
         </div>
     </section>
+    <div class="stack-spacer" aria-hidden="true"></div>
 
-    <section id="works" class="s-works target-section">
+    <section id="experience" class="target-section stack-card stack-card--sheet stack-card--experience" data-nav="about">
+        <div class="row narrow section-intro experience-intro">
+            <div class="col-full">
+                <h1>Deneyimlerim</h1>
+                <p class="lead">Yazılım geliştirme ve üniversite-sanayi iş birliği süreçlerinde edindiğim staj deneyimi.</p>
+            </div>
+        </div>
+
+        <div class="experience-grid">
+            <article class="experience-card">
+                <div class="timeline__header">
+                    <p class="timeline__timeframe">Temmuz 2026 – Ağustos 2026</p>
+                    <h5>IdeaSoft</h5>
+                    <h3>Yazılım Geliştirme Stajyeri</h3>
+                </div>
+                <div class="timeline__desc">
+                    <p>Setup biriminde müşteri e-ticaret sitelerinin sayfa ve şablon yapısını HTML, CSS ve JavaScript ile özelleştirdim; ürün varyantı seçimine göre fiyat değişimini ve stokta olmayan varyant kombinasyonlarının devre dışı bırakılmasını JavaScript ile kodladım.</p>
+                    <p>XML/Excel ile toplu ürün verisi yönetimi ve veri doğrulama, Python (pandas) ile veri analizi yaptım; SEO düzenlemeleri ile test ve kalite kontrol süreçlerinde görev aldım.</p>
+                </div>
+            </article>
+            <article class="experience-card">
+                <div class="timeline__header">
+                    <p class="timeline__timeframe">Haziran 2025 – Haziran 2026</p>
+                    <h5>İSTÜN Teknoloji Transfer Ofisi</h5>
+                    <h3>Uzun Dönem Stajyer</h3>
+                </div>
+                <div class="timeline__desc">
+                    <p>Teknoloji Transfer Ofisi'nde yürüttüğüm staj kapsamında araştırma ve inovasyon süreçlerini aktif olarak deneyimliyorum. Ulusal ve bilimsel araştırma projelerinin başvuru ve planlama aşamalarını gözlemleyerek proje yönetimi süreçlerine dair pratik bilgi kazanıyorum.</p>
+                    <p>Üniversite-sanayi iş birliği projelerinde görev alarak fon başvurusu ve raporlama süreçlerine destek sağlıyor, kurumsal işleyiş ve ekip dinamikleri hakkında deneyim ediniyorum.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+    <div class="stack-spacer" aria-hidden="true"></div>
+
+    <section id="works" class="s-works target-section stack-card stack-card--sheet stack-card--works">
         <div class="row narrow section-intro">
             <div class="col-full">
                 <h1 id="works-title">Son Projelerime Göz Atın</h1>
@@ -470,8 +569,9 @@
             </div>
         </div>
     </section>
+    <div class="stack-spacer" aria-hidden="true"></div>
 
-    <section id="contact" class="s-contact target-section">
+    <section id="contact" class="s-contact target-section stack-card stack-card--sheet">
         <div class="row narrow section-intro">
             <div class="col-full">
                 <h1>Bana Ulaşın</h1>
@@ -503,7 +603,6 @@
                 </div>
             </div>
         </div>
-    </section>
 
     <footer>
         <div class="row">
@@ -528,6 +627,8 @@
             </div>
         </div>
     </footer>
+    </section>
+    </div>
 
     <div class="project-modal" data-project-modal aria-hidden="true">
         <div class="project-modal__dialog" role="dialog" aria-modal="true" aria-label="Proje detayı">
@@ -539,11 +640,38 @@
     <script src="hola-master/js/jquery-3.2.1.min.js"></script>
     <script src="hola-master/js/plugins.js"></script>
     <script src="hola-master/js/main.js"></script>
-    <script>
-        localStorage.removeItem("portfolio-theme");
-        document.body.classList.remove("theme-dark");
-    </script>
     <script src="hola-master/js/theme-toggle.js"></script>
+    <script>
+        (function () {
+            var cards = document.querySelectorAll(".skill-card, .experience-card");
+
+            if (!cards.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                return;
+            }
+
+            cards.forEach(function (card) {
+                card.addEventListener("pointermove", function (event) {
+                    var rect = card.getBoundingClientRect();
+                    card.style.setProperty("--mx", (event.clientX - rect.left) + "px");
+                    card.style.setProperty("--my", (event.clientY - rect.top) + "px");
+
+                    if (!card.classList.contains("experience-card")) {
+                        return;
+                    }
+
+                    var dx = (event.clientX - rect.left) / rect.width - 0.5;
+                    var dy = (event.clientY - rect.top) / rect.height - 0.5;
+                    card.style.setProperty("--rx", (-dy * 8).toFixed(2) + "deg");
+                    card.style.setProperty("--ry", (dx * 10).toFixed(2) + "deg");
+                });
+
+                card.addEventListener("pointerleave", function () {
+                    card.style.setProperty("--rx", "0deg");
+                    card.style.setProperty("--ry", "0deg");
+                });
+            });
+        })();
+    </script>
     <script>
         (function () {
             var links = document.querySelectorAll('a.smoothscroll[href^="#"]');
@@ -565,9 +693,8 @@
                     event.preventDefault();
                     event.stopPropagation();
 
-                    var header = document.querySelector(".s-header");
-                    var headerHeight = header ? header.offsetHeight : 0;
-                    var targetTop = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    var card = target.closest(".stack-card") || target;
+                    var targetTop = card.getBoundingClientRect().top + window.pageYOffset;
 
                     window.scrollTo({
                         top: Math.max(targetTop, 0),
