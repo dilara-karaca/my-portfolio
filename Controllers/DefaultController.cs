@@ -18,7 +18,7 @@ namespace portfolyom.Controllers
 
         public IActionResult DownloadCv()
         {
-            var fileName = "Zeynep Dilara Karaca.pdf";
+            var fileName = "Zeynep_Dilara_Karaca_CV_TR.pdf";
             var filePath = Path.Combine(_environment.WebRootPath, "files", fileName);
 
             if (!System.IO.File.Exists(filePath))

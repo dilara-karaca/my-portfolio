@@ -1,3 +1,17 @@
+@keyframes sheet-lift {
+    from {
+        filter:
+            drop-shadow(0 0 0 rgba(255, 214, 232, 0))
+            drop-shadow(0 0 0 rgba(42, 16, 32, 0));
+    }
+
+    to {
+        filter:
+            drop-shadow(0 -2.2rem 2.6rem rgba(255, 186, 214, 0.9))
+            drop-shadow(0 -4rem 4rem rgba(0, 0, 0, 0.72));
+    }
+}
+
 .is-stacked {
     background: #f9f4ff;
 }
@@ -21,6 +35,7 @@
 .page-stack > .stack-card:nth-of-type(3) { z-index: 3; }
 .page-stack > .stack-card:nth-of-type(4) { z-index: 4; }
 .page-stack > .stack-card:nth-of-type(5) { z-index: 5; }
+.page-stack > .stack-card:nth-of-type(6) { z-index: 6; }
 
 .stack-spacer {
     height: 72vh;
@@ -29,12 +44,18 @@
 
 .stack-card--sheet {
     border-radius: 2.8rem 2.8rem 0 0;
-    box-shadow: 0 -2.2rem 4.8rem rgba(90, 52, 72, 0.14);
+    filter:
+        drop-shadow(0 -2.2rem 2.6rem rgba(255, 186, 214, 0.9))
+        drop-shadow(0 -4rem 4rem rgba(0, 0, 0, 0.72));
+    animation: sheet-lift linear both;
+    animation-timeline: view(block);
+    animation-range: entry 0% entry 80%;
 }
 
 .is-stacked .s-about.stack-card,
 .is-stacked .stack-card--experience,
 .is-stacked .s-works.stack-card,
+.is-stacked .stack-card--publications,
 .is-stacked .s-contact.stack-card {
     display: flex;
     flex-direction: column;
@@ -51,7 +72,11 @@
 .is-stacked .stack-card--experience {
     background: linear-gradient(120deg, #e7f0ff 0%, #f7f1fb 48%, #e7f6ef 100%);
     background-size: 180% 180%;
-    animation: experience-wash 16s ease-in-out infinite;
+    animation:
+        experience-wash 16s ease-in-out infinite,
+        sheet-lift linear both;
+    animation-timeline: auto, view(block);
+    animation-range: normal, entry 0% entry 80%;
 }
 
 @keyframes experience-wash {
@@ -66,15 +91,31 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .is-stacked .stack-card--experience {
+    .is-stacked .stack-card--experience,
+    .is-stacked .stack-card--works,
+    .is-stacked .stack-card--publications {
         animation: none;
     }
 }
 
 .is-stacked .stack-card--works {
-    background:
-        radial-gradient(circle at 88% 12%, rgba(211, 228, 255, 0.65), transparent 36%),
-        #ffffff;
+    background: linear-gradient(125deg, #e7f0ff 0%, #f8eef6 46%, #e7f6f1 100%);
+    background-size: 180% 180%;
+    animation:
+        experience-wash 18s ease-in-out infinite,
+        sheet-lift linear both;
+    animation-timeline: auto, view(block);
+    animation-range: normal, entry 0% entry 80%;
+}
+
+.is-stacked .stack-card--publications {
+    background: linear-gradient(125deg, #f8f1e6 0%, #f7eef6 52%, #e7f3f1 100%);
+    background-size: 180% 180%;
+    animation:
+        experience-wash 20s ease-in-out infinite,
+        sheet-lift linear both;
+    animation-timeline: auto, view(block);
+    animation-range: normal, entry 0% entry 80%;
 }
 
 .is-stacked .s-contact.stack-card {
@@ -391,6 +432,97 @@ body.theme-dark .experience-card .timeline__header h3 {
     font-size: 1.05rem;
 }
 
+.portfolio-card-v2--blue { --card: #7481d8; }
+.portfolio-card-v2--green { --card: #3d9e98; }
+.portfolio-card-v2--teal { --card: #3aa79a; }
+.portfolio-card-v2--orange { --card: #d28b5b; }
+.portfolio-card-v2--purple { --card: #a483d2; }
+.portfolio-card-v2--indigo { --card: #7a88d7; }
+.portfolio-card-v2--pink { --card: #d786bb; }
+.portfolio-card-v2--rose { --card: #d987a0; }
+
+body.is-stacked .portfolio-grid-v2 > .portfolio-card-v2 {
+    --mx: 50%;
+    --my: 30%;
+    --rx: 0deg;
+    --ry: 0deg;
+    position: relative;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--card) 24%, #fff) 0%, color-mix(in srgb, var(--card) 10%, #fff) 100%);
+    border-color: color-mix(in srgb, var(--card) 34%, #fff);
+    transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+    transition: transform .18s ease-out, box-shadow .35s ease;
+}
+
+body.is-stacked .portfolio-grid-v2 > .portfolio-card-v2::after {
+    content: "";
+    position: absolute;
+    top: var(--my);
+    left: var(--mx);
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--card) 62%, transparent) 0%, transparent 68%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity .25s ease;
+}
+
+body.is-stacked .portfolio-grid-v2 > .portfolio-card-v2:hover::after,
+body.is-stacked .portfolio-grid-v2 > .portfolio-card-v2:focus-within::after {
+    opacity: 1;
+}
+
+body.is-stacked .portfolio-grid-v2 > .portfolio-card-v2:hover,
+body.is-stacked .portfolio-grid-v2 > .portfolio-card-v2:focus-within {
+    transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+    box-shadow: 0 1.8rem 3.4rem color-mix(in srgb, var(--card) 32%, transparent);
+}
+
+body.is-stacked .portfolio-grid-v2 > .portfolio-card-v2 .portfolio-card-v2__top,
+body.is-stacked .portfolio-grid-v2 > .portfolio-card-v2 .portfolio-card-v2__body,
+body.is-stacked .portfolio-grid-v2 > .portfolio-card-v2 .portfolio-card-v2__footer {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
+body.is-stacked .portfolio-grid-v2 > .portfolio-card-v2 .portfolio-card-v2__top {
+    color: color-mix(in srgb, var(--card) 78%, #1a1522);
+    border-bottom-color: transparent;
+}
+
+body.is-stacked .portfolio-grid-v2 > .portfolio-card-v2 .portfolio-card-v2__tech {
+    background: color-mix(in srgb, var(--card) 14%, #fff);
+    border-color: color-mix(in srgb, var(--card) 30%, #fff);
+    color: color-mix(in srgb, var(--card) 72%, #243050);
+}
+
+body.theme-dark.is-stacked .portfolio-grid-v2 > .portfolio-card-v2 {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--card) 46%, #171320) 0%, color-mix(in srgb, var(--card) 20%, #141018) 100%);
+    border-color: color-mix(in srgb, var(--card) 55%, transparent);
+    box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, 0.28);
+}
+
+body.theme-dark.is-stacked .portfolio-grid-v2 > .portfolio-card-v2 .portfolio-card-v2__top {
+    color: #fff;
+}
+
+body.theme-dark.is-stacked .portfolio-grid-v2 > .portfolio-card-v2 .portfolio-card-v2__title {
+    color: #f7f1f8;
+}
+
+body.theme-dark.is-stacked .portfolio-grid-v2 > .portfolio-card-v2 .portfolio-card-v2__desc {
+    color: rgba(244, 236, 242, 0.78);
+}
+
+body.theme-dark.is-stacked .portfolio-grid-v2 > .portfolio-card-v2 .portfolio-card-v2__tech {
+    background: color-mix(in srgb, var(--card) 28%, transparent);
+    border-color: color-mix(in srgb, var(--card) 48%, transparent);
+    color: #f4eef6;
+}
+
 .is-stacked .stack-card .contact__item-head {
     justify-content: center;
 }
@@ -422,9 +554,19 @@ body.theme-dark .stack-card--experience {
 }
 
 body.theme-dark .stack-card--works {
-    background:
-        radial-gradient(circle at 88% 12%, rgba(87, 121, 178, 0.22), transparent 40%),
-        #1a1522;
+    background: linear-gradient(125deg, #1b1733 0%, #26182a 48%, #14241f 100%);
+    background-size: 180% 180%;
+    animation: experience-wash 18s ease-in-out infinite;
+}
+
+body.theme-dark .stack-card--publications {
+    background: linear-gradient(125deg, #231c18 0%, #26182a 52%, #14241f 100%);
+    background-size: 180% 180%;
+    animation:
+        experience-wash 20s ease-in-out infinite,
+        sheet-lift linear both;
+    animation-timeline: auto, view(block);
+    animation-range: normal, entry 0% entry 80%;
 }
 
 body.theme-dark .s-contact.stack-card {
@@ -432,7 +574,9 @@ body.theme-dark .s-contact.stack-card {
 }
 
 body.theme-dark .stack-card--sheet {
-    box-shadow: 0 -2.2rem 4.8rem rgba(0, 0, 0, 0.35);
+    filter:
+        drop-shadow(0 -2.2rem 2.6rem rgba(255, 186, 214, 0.9))
+        drop-shadow(0 -4rem 4rem rgba(0, 0, 0, 0.72));
 }
 
 body.theme-dark.is-stacked .stack-card footer,
@@ -463,6 +607,7 @@ body.theme-dark.is-stacked .stack-card footer a {
     .is-stacked .s-about.stack-card,
     .is-stacked .stack-card--experience,
     .is-stacked .s-works.stack-card,
+    .is-stacked .stack-card--publications,
     .is-stacked .s-contact.stack-card {
         width: auto;
         padding-left: 2.4rem;
@@ -499,6 +644,12 @@ body.theme-dark.is-stacked .stack-card footer a {
 
     .is-stacked .home-content__buttons .btn {
         width: 100%;
+    }
+
+    .is-stacked .stack-card--publications {
+        height: 100lvh;
+        max-height: 100lvh;
+        overflow: auto;
     }
 
     .is-stacked .stack-card--about .about-content,

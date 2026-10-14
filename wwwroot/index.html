@@ -100,10 +100,153 @@
         @media (prefers-reduced-motion: reduce) {
             .experience-card,
             .experience-card::after,
-            .stack-card--experience {
+            .stack-card--experience,
+            .publication-card,
+            .publication-card::after {
                 transition: none;
                 animation: none;
             }
+        }
+
+        .publication-list {
+            width: min(108rem, 100%);
+            margin: 0.8rem auto 0;
+            display: grid;
+            gap: 1.4rem;
+            text-align: left;
+        }
+
+        .publication-card {
+            --mx: 70%;
+            --my: 20%;
+            --rx: 0deg;
+            --ry: 0deg;
+            --card: #d786bb;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 2.6rem 1.8rem;
+            border-radius: 1.6rem;
+            border: 1px solid color-mix(in srgb, var(--card) 36%, #fff);
+            background: linear-gradient(165deg, #fff 0%, color-mix(in srgb, var(--card) 16%, #fff) 100%);
+            box-shadow: 0 1.4rem 3.2rem color-mix(in srgb, var(--card) 18%, transparent);
+            text-align: left;
+            transform: perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry));
+            transition: transform .18s ease-out, box-shadow .35s ease;
+        }
+
+        .publication-card--teal { --card: #3aa79a; }
+        .publication-card--blue { --card: #7481d8; }
+
+        .publication-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: .5rem;
+            background: linear-gradient(90deg, var(--card), #7dcec0);
+        }
+
+        .publication-card::after {
+            content: "";
+            position: absolute;
+            top: var(--my);
+            left: var(--mx);
+            width: 28rem;
+            height: 28rem;
+            border-radius: 50%;
+            background: radial-gradient(circle, color-mix(in srgb, var(--card) 55%, transparent) 0%, transparent 68%);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .25s ease;
+        }
+
+        .publication-card:hover::after,
+        .publication-card:focus-within::after {
+            opacity: 1;
+        }
+
+        .publication-card:hover,
+        .publication-card:focus-within {
+            box-shadow: 0 2.4rem 4.4rem color-mix(in srgb, var(--card) 28%, transparent);
+        }
+
+        .publication-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .publication-card__venue {
+            margin: 0;
+            font-family: "librebaskerville-bold", serif;
+            font-size: 2rem;
+            line-height: 1.2;
+            color: #241820;
+        }
+
+        .publication-card__event {
+            margin: 0.4rem 0 0;
+            font-family: "montserrat-regular", sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: .06rem;
+            text-transform: uppercase;
+            color: color-mix(in srgb, var(--card) 70%, #3a2030);
+        }
+
+        .publication-card h3 {
+            margin: 0.9rem 0 0.7rem;
+            font-family: "montserrat-bold", sans-serif;
+            font-size: 1.65rem;
+            line-height: 1.45;
+            color: #241820;
+        }
+
+        .publication-card__authors {
+            margin: 0;
+            font-family: "montserrat-regular", sans-serif;
+            font-size: 1.35rem;
+            line-height: 1.5;
+            color: rgba(42, 34, 48, 0.78);
+        }
+
+        .publication-card__status {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            background: color-mix(in srgb, var(--card) 16%, #fff);
+            border: 1px solid color-mix(in srgb, var(--card) 34%, #fff);
+            font-family: "montserrat-regular", sans-serif;
+            font-size: 1.15rem;
+            letter-spacing: .08rem;
+            text-transform: uppercase;
+            color: color-mix(in srgb, var(--card) 75%, #241820);
+        }
+
+        body.theme-dark .publication-card {
+            background: linear-gradient(165deg, color-mix(in srgb, var(--card) 42%, #171320), #141018);
+            border-color: color-mix(in srgb, var(--card) 50%, transparent);
+            box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, 0.28);
+        }
+
+        body.theme-dark .publication-card__venue,
+        body.theme-dark .publication-card h3 {
+            color: #fff;
+        }
+
+        body.theme-dark .publication-card__event,
+        body.theme-dark .publication-card__status {
+            color: color-mix(in srgb, var(--card) 45%, #fff);
+        }
+
+        body.theme-dark .publication-card__authors {
+            color: rgba(244, 236, 242, 0.78);
+        }
+
+        body.theme-dark .publication-card__status {
+            background: color-mix(in srgb, var(--card) 22%, transparent);
+            border-color: color-mix(in srgb, var(--card) 46%, transparent);
         }
 
         .experience-card .timeline__timeframe {
@@ -204,6 +347,11 @@
         }
 
         .project-modal__dialog {
+            --mx: 72%;
+            --my: 16%;
+            --card: #d786bb;
+            --edge: 0;
+            --edge-end: 0;
             position: relative;
             width: min(76rem, 100%);
             max-height: min(86vh, 78rem);
@@ -212,13 +360,31 @@
             box-shadow: 0 2.8rem 8rem rgba(20, 20, 35, 0.28);
         }
 
+        .project-modal__shade {
+            position: fixed;
+            z-index: 3;
+            pointer-events: none;
+            border-radius: inherit;
+            background: radial-gradient(circle at var(--mx) var(--my), color-mix(in srgb, var(--card) 46%, transparent), transparent 18rem);
+            box-shadow:
+                inset 0 3.4rem 2.6rem -1.8rem rgba(72, 28, 52, calc(var(--edge) * 0.28)),
+                inset 0 -3.4rem 2.6rem -1.8rem rgba(72, 28, 52, calc(var(--edge-end) * 0.22));
+        }
+
+        body.theme-dark .project-modal__shade {
+            background: radial-gradient(circle at var(--mx) var(--my), color-mix(in srgb, var(--card) 72%, transparent), transparent 16rem);
+            box-shadow:
+                inset 0 3.6rem 2.8rem -1.6rem rgba(255, 220, 236, calc(var(--edge) * 0.5)),
+                inset 0 -3.6rem 2.8rem -1.6rem rgba(0, 0, 0, calc(var(--edge-end) * 0.55));
+        }
+
         .project-modal__close {
             -webkit-appearance: none;
             appearance: none;
             position: absolute;
             top: 1.8rem;
             right: 2rem;
-            z-index: 1;
+            z-index: 4;
             min-width: 0 !important;
             width: auto !important;
             height: auto !important;
@@ -257,6 +423,138 @@
             margin-top: 2.4rem;
         }
 
+        .project-readme {
+            --card: #d786bb;
+            position: relative;
+            overflow: hidden;
+            padding: 4.8rem 4.4rem 3.4rem;
+            color: #2a2230;
+            border-radius: 1.8rem;
+            border: 1px solid color-mix(in srgb, var(--card) 38%, #fff);
+            background: linear-gradient(165deg, #fff 0%, color-mix(in srgb, var(--card) 18%, #fff) 100%);
+            box-shadow: 0 2.4rem 5.6rem rgba(70, 40, 70, 0.18);
+        }
+
+        .project-readme::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: .55rem;
+            background: linear-gradient(90deg, var(--card), #7dcec0);
+        }
+
+        .project-readme h1,
+        .project-readme h2,
+        .project-readme h3 {
+            font-family: "montserrat-bold", sans-serif;
+            line-height: 1.25;
+            color: #241820;
+        }
+
+        .project-readme h1 {
+            font-size: 3.2rem;
+            margin: 0 0 1.2rem;
+        }
+
+        .project-readme h2,
+        .project-readme h3 {
+            margin: 2.6rem 0 1rem;
+            padding-left: 1.2rem;
+            border-left: .35rem solid var(--card);
+        }
+
+        .project-readme h2 {
+            font-size: 2rem;
+        }
+
+        .project-readme h3 {
+            font-size: 1.7rem;
+        }
+
+        .project-readme p,
+        .project-readme li {
+            font-family: "montserrat-regular", sans-serif;
+            font-size: 1.55rem;
+            line-height: 1.7;
+        }
+
+        .project-readme ul,
+        .project-readme ol {
+            margin: 0 0 1.6rem;
+            padding-left: 2rem;
+        }
+
+        .project-readme li::marker {
+            color: var(--card);
+        }
+
+        .project-readme a {
+            color: color-mix(in srgb, var(--card) 70%, #3a2030);
+        }
+
+        .project-readme pre {
+            overflow: auto;
+            margin: 0 0 1.6rem;
+            padding: 1.4rem 1.6rem;
+            border-radius: 1rem;
+            background: color-mix(in srgb, var(--card) 10%, #fff);
+            border: 1px solid color-mix(in srgb, var(--card) 24%, #fff);
+        }
+
+        .project-readme code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 1.3rem;
+        }
+
+        .project-readme img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 1.4rem 0;
+            border-radius: 1.2rem;
+            box-shadow: 0 1.4rem 3rem rgba(40, 20, 40, 0.16);
+        }
+
+        .project-readme .anchor {
+            display: none;
+        }
+
+        .project-readme__actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2.8rem;
+            padding-top: 2rem;
+            border-top: 1px solid color-mix(in srgb, var(--card) 28%, transparent);
+        }
+
+        body.theme-dark .project-readme {
+            color: #f6eef4;
+            border-color: color-mix(in srgb, var(--card) 55%, transparent);
+            background: linear-gradient(165deg, color-mix(in srgb, var(--card) 38%, #171320), #141018);
+        }
+
+        body.theme-dark .project-readme h1,
+        body.theme-dark .project-readme h2,
+        body.theme-dark .project-readme h3 {
+            color: #fff;
+        }
+
+        body.theme-dark .project-readme a {
+            color: color-mix(in srgb, var(--card) 55%, #fff);
+        }
+
+        body.theme-dark .project-readme pre {
+            background: rgba(0, 0, 0, 0.28);
+            border-color: color-mix(in srgb, var(--card) 40%, transparent);
+        }
+
+        body.theme-dark .project-modal__close {
+            color: #fff !important;
+        }
+
         @media only screen and (max-width: 700px) {
             .portfolio-card-v2 {
                 height: 46rem;
@@ -270,7 +568,7 @@
 
     <script src="hola-master/js/modernizr.js"></script>
 
-    <link rel="stylesheet" href="css/stack.css">
+    <link rel="stylesheet" href="css/stack.css?v=12">
 
     <link rel="shortcut icon" href="assets/dk.icon.png" type="image/png">
     <link rel="icon" href="assets/dk.icon.png" type="image/png">
@@ -290,6 +588,7 @@
                 <li class="current"><a class="smoothscroll" href="#home" title="home">ANA SAYFA</a></li>
                 <li><a class="smoothscroll" href="#about" title="about">HAKKIMDA</a></li>
                 <li><a class="smoothscroll" href="#works" title="works">PROJELERİM</a></li>
+                <li><a class="smoothscroll" href="#publications" title="publications">YAYINLARIM</a></li>
                 <li><a class="smoothscroll" href="#contact" title="contact">İLETİŞİM</a></li>
             </ul>
         </nav>
@@ -343,7 +642,6 @@
         <div class="row narrow section-intro has-bottom-sep">
             <div class="col-full text-center">
                 <h1>Hakkımda</h1>
-                <p class="lead">Teknoloji Odaklı Bilgisayar Mühendisliği Öğrencisi</p>
             </div>
         </div>
 
@@ -389,7 +687,7 @@
 
         <div class="row about-content about-content--buttons">
             <div class="col-six tab-full left">
-                <a href="files/Zeynep%20Dilara%20Karaca.pdf" class="btn btn--primary full-width" download>CV'Mİ
+                <a href="files/Zeynep_Dilara_Karaca_CV_TR.pdf" class="btn btn--primary full-width" download>CV'Mİ
                     İNDİR</a>
             </div>
             <div class="col-six tab-full right">
@@ -571,6 +869,38 @@
     </section>
     <div class="stack-spacer" aria-hidden="true"></div>
 
+    <section id="publications" class="target-section stack-card stack-card--sheet stack-card--publications">
+        <div class="row narrow section-intro">
+            <div class="col-full">
+                <h1>Yayınlarım</h1>
+                <p class="lead">Konferans bildirilerim.</p>
+            </div>
+        </div>
+
+        <div class="publication-list">
+            <article class="publication-card publication-card--rose">
+                <p class="publication-card__venue">SAVTEK 2026</p>
+                <p class="publication-card__event">12. Savunma Teknolojileri Kongresi · ODTÜ, Ankara</p>
+                <h3>Askeri Personel Sağlık Durum Farkındalık Sistemi: Giyilebilir Sensör Tabanlı Gerçek Zamanlı Fizyolojik İzleme ve Anomali Tespiti</h3>
+                <p class="publication-card__authors">Karaca, Z. D., Canpolat, M., Akarçeşme, B., Tokatlı, N.</p>
+                <span class="publication-card__status">Kabul edildi</span>
+            </article>
+            <article class="publication-card publication-card--teal">
+                <p class="publication-card__venue">SAVTEK 2026</p>
+                <p class="publication-card__event">12. Savunma Teknolojileri Kongresi · ODTÜ, Ankara</p>
+                <h3>Kara, Su Yüzeyi ve Su Altı Ortamlarında Özerkleştirilmiş İnsan Tespiti İçin Amfibi VTOL İHA Platformunun Tasarımı ve Geliştirilmesi</h3>
+                <p class="publication-card__authors">Çokkayışlı, Ö. R., Karaca, Z. D., Akarçeşme, B.</p>
+                <span class="publication-card__status">Kabul edildi</span>
+            </article>
+            <article class="publication-card publication-card--blue">
+                <p class="publication-card__venue">ICSET-25</p>
+                <p class="publication-card__event">International Conference on Science, Engineering &amp; Technology</p>
+                <h3>Kronik Hastalar için Mobil Sağlık Takip Uygulaması</h3>
+            </article>
+        </div>
+    </section>
+    <div class="stack-spacer" aria-hidden="true"></div>
+
     <section id="contact" class="s-contact target-section stack-card stack-card--sheet">
         <div class="row narrow section-intro">
             <div class="col-full">
@@ -630,8 +960,209 @@
     </section>
     </div>
 
+<template data-readme="dilara-karaca/restaurant-management-system">
+<div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto">RESTAURANT MANAGEMENT SYSTEM</p>
+<p dir="auto">About the Project</p>
+<p dir="auto">Restaurant Management System is a multi-user web-based application developed to digitally manage restaurant operations. The system integrates core restaurant processes such as order management, table tracking, menu organization, and inventory control.</p>
+<p dir="auto">The project is built using PHP and MySQL and follows a structured relational database design. It includes a role-based authorization system that provides different access levels for different user types.</p>
+<p dir="auto">#User Roles</p>
+<p dir="auto">The system includes three main user roles:</p>
+<p dir="auto">Customer</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="  -View menu
+
+  -Create orders
+
+  -View order history"><pre class="notranslate"><code>  -View menu
+
+  -Create orders
+
+  -View order history
+</code></pre></div>
+<p dir="auto">Waiter</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="  -Take table-based orders
+
+  -Update order status
+
+  -Track active orders"><pre class="notranslate"><code>  -Take table-based orders
+
+  -Update order status
+
+  -Track active orders
+</code></pre></div>
+<p dir="auto">Admin</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="  -Manage menu and categories
+
+  -Add, edit, and delete products
+
+  -Monitor stock and ingredients
+
+  -Manage personnel
+
+  -Access reports and system controls"><pre class="notranslate"><code>  -Manage menu and categories
+
+  -Add, edit, and delete products
+
+  -Monitor stock and ingredients
+
+  -Manage personnel
+
+  -Access reports and system controls
+</code></pre></div>
+<p dir="auto">This role-based architecture models real-world restaurant workflow in a structured and organized manner.</p>
+<p dir="auto">#My Contribution (Frontend)</p>
+<p dir="auto">In this repository, the frontend layer of the project was developed by me.</p>
+<p dir="auto">-Complete user interface design</p>
+<p dir="auto">-Page structure and user flow</p>
+<p dir="auto">-UI implementation for Admin, Waiter, and Customer panels</p>
+<p dir="auto">-Menu and order screen design</p>
+<p dir="auto">-Responsive layout and user experience improvements</p>
+<p dir="auto">The frontend focuses on usability, clean structure, and clear separation between user roles.</p>
+</article></div>
+</template>
+<template data-readme="dilara-karaca/karaciger_chatbot">
+<div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Karaciğer Chatbot (Livera)</h1></div>
+<p dir="auto">Livera, Flask tabanlı bir web chatbot uygulamasıdır.<br>
+Kullanıcıların <strong>karaciğer ile ilgili sorularını</strong> cevaplamak için hem <strong>CSV veri seti</strong> hem de <strong>Gemini API</strong> kullanır.<br>
+Eğer soru CSV’de bulunmazsa, yanıt Gemini API üzerinden alınır.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Özellikler</h2></div>
+<ul dir="auto">
+<li>Python &amp; Flask tabanlı backend</li>
+<li>Kullanıcı dostu web arayüzü (sohbet balonları tasarımı)</li>
+<li>TF-IDF + Cosine Similarity ile CSV’den en yakın cevabı bulma</li>
+<li>Gemini API fallback (sorular CSV’de yoksa)</li>
+<li><code>.env</code> ile güvenli API key yönetimi</li>
+</ul>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Proje Yapısı</h2></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/karaciger_chatbot/main/screenshots/chatbot.jpg"><img src="https://raw.githubusercontent.com/dilara-karaca/karaciger_chatbot/main/screenshots/chatbot.jpg" alt="Chatbot Arayüzü" style="max-width: 100%;"></a></p>
+</article></div>
+</template>
+<template data-readme="dilara-karaca/liver-artificial-intelligence-comparison">
+<div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Liver Artificial Intelligence Comparison System</h1></div>
+<p dir="auto">Hybrid QA system comparing dataset-based answers with multiple LLM providers for liver disease questions.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Project Overview</h2></div>
+<p dir="auto">This project is a hybrid Question Answering (QA) system developed to compare responses from:</p>
+<ul dir="auto">
+<li>Dataset-based TF-IDF similarity matching</li>
+<li>Groq – Llama 3.3 70B</li>
+<li>Google – Gemini 2.5 Flash</li>
+<li>Poe – GPT-3.5-Turbo</li>
+</ul>
+<p dir="auto">The system first checks whether a user question matches a predefined medical dataset using cosine similarity.<br>
+If similarity exceeds a threshold (0.60), the dataset answer is returned.<br>
+Otherwise, the system queries multiple LLM providers and compares their responses.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">System Architecture</h2></div>
+<p dir="auto">User Question<br>
+→ TF-IDF Vectorization<br>
+→ Cosine Similarity Check<br>
+→ If similarity ≥ 0.60 → Dataset Answer<br>
+→ Else → Call LLM APIs (Groq, Gemini, Poe)</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Technologies Used</h2></div>
+<ul dir="auto">
+<li>Python</li>
+<li>Flask</li>
+<li>Pandas</li>
+<li>Scikit-learn (TF-IDF, Cosine Similarity)</li>
+<li>REST APIs (Groq, Gemini, Poe)</li>
+<li>HTML/CSS (Frontend)</li>
+</ul>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Application Screenshots</h2></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/liver-artificial-intelligence-comparison/main/liver-ai-1.jpeg"><img src="https://raw.githubusercontent.com/dilara-karaca/liver-artificial-intelligence-comparison/main/liver-ai-1.jpeg" alt="Screenshot 1" style="max-width: 100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/liver-artificial-intelligence-comparison/main/liver-ai-2.jpeg"><img src="https://raw.githubusercontent.com/dilara-karaca/liver-artificial-intelligence-comparison/main/liver-ai-2.jpeg" alt="Screenshot 2" style="max-width: 100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/liver-artificial-intelligence-comparison/main/liver-ai-3.jpeg"><img src="https://raw.githubusercontent.com/dilara-karaca/liver-artificial-intelligence-comparison/main/liver-ai-3.jpeg" alt="Screenshot 3" style="max-width: 100%;"></a></p>
+</article></div>
+</template>
+<template data-readme="dilara-karaca/valentines-day">
+<div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">❤️ Valentine's Day Interactive Game</h1></div>
+<p dir="auto">A 4-level interactive Valentine's Day web experience built with HTML, CSS and JavaScript.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Project Overview</h2></div>
+<p dir="auto">This project is a multi-stage interactive web game designed as a Valentine's Day experience.<br>
+Each stage introduces a different game mechanic and progresses sequentially.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Stages</h2></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Stage 1 – Word Puzzle (Encrypted Phrase)</h3></div>
+<p dir="auto">Users fill in missing letters to reveal a hidden password phrase.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Stage 2 – Date-Event Matching</h3></div>
+<p dir="auto">Users match important dates with corresponding events.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Stage 3 – Memory Game</h3></div>
+<p dir="auto">Classic card matching memory game mechanic.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Stage 4 – Mario-Style Platform Game</h3></div>
+<p dir="auto">Mini platform game inspired by classic Mario mechanics.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Technologies Used</h2></div>
+<ul dir="auto">
+<li>HTML5</li>
+<li>CSS3</li>
+<li>Vanilla JavaScript</li>
+</ul>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Project Structure</h2></div>
+<p dir="auto">├── index.html
+├── stage2.html
+├── stage3.html
+├── stage4.html
+├── css/
+├── js/
+└── assets/</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Screenshots</h2></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Stage 1</h3></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/stage1.png"><img src="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/stage1.png" alt="Stage 1" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Stage 2</h3></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/stage2.png"><img src="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/stage2.png" alt="Stage 2" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Stage 2 Tamamlandı</h3></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/tamamlandi1.png"><img src="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/tamamlandi1.png" alt="Stage 2" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Stage 3</h3></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/stage3.png"><img src="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/stage3.png" alt="Stage 3" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Stage 3 Tamamlandı</h3></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/tamamlandi2.png"><img src="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/tamamlandi2.png" alt="Stage 3" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Stage 4 Başlangıç</h3></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/stage4-baslangic.png"><img src="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/stage4-baslangic.png" alt="Stage 4" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Stage 4</h3></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/stage4.png"><img src="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/stage4.png" alt="Stage 4" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Stage 4 Final</h3></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/stage4-final.png"><img src="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/stage4-final.png" alt="Stage 4" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Final</h3></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/final.png"><img src="https://raw.githubusercontent.com/dilara-karaca/valentines-day/main/assets/screenshots/final.png" alt="Stage 4" style="max-width: 100%;"></a></p>
+<p dir="auto">--</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Author</h2></div>
+<p dir="auto">Dilara Karaca</p>
+</article></div>
+</template>
+<template data-readme="dilara-karaca/yeni-yil-dilek-kavanozu">
+<div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">2026 New Year Wish Jar</h1></div>
+<p dir="auto">An interactive New Year Wish Jar web project built with HTML, CSS and JavaScript.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Live Demo</h2></div>
+<p dir="auto"><a href="https://yeni-yil-dilek-kavanozu-dk.netlify.app/" rel="nofollow">https://yeni-yil-dilek-kavanozu-dk.netlify.app/</a></p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">About the Project</h2></div>
+<p dir="auto">This project is a simple and interactive web experience where users can open a virtual envelope and write their wishes for the new year.<br>
+It focuses on clean UI, smooth animations, and responsive design.
+It has been optimized to work smoothly on both desktop and mobile devices.</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Technologies Used</h2></div>
+<ul dir="auto">
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript (Vanilla)</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Features</h2></div>
+<ul dir="auto">
+<li>Interactive envelope animation</li>
+<li>Smooth transitions and visual effects</li>
+<li>Fully responsive design</li>
+<li>Deployed on Netlify</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Deployment</h2></div>
+<p dir="auto">The project is deployed using Netlify and automatically updated via GitHub.</p>
+</article></div>
+</template>
+
     <div class="project-modal" data-project-modal aria-hidden="true">
         <div class="project-modal__dialog" role="dialog" aria-modal="true" aria-label="Proje detayı">
+            <div class="project-modal__shade" aria-hidden="true"></div>
             <button class="project-modal__close" type="button" data-project-modal-close aria-label="Kapat">×</button>
             <div data-project-modal-content></div>
         </div>
@@ -643,7 +1174,7 @@
     <script src="hola-master/js/theme-toggle.js"></script>
     <script>
         (function () {
-            var cards = document.querySelectorAll(".skill-card, .experience-card");
+            var cards = document.querySelectorAll(".skill-card, .experience-card, .publication-card, .portfolio-grid-v2 > .portfolio-card-v2");
 
             if (!cards.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
                 return;
@@ -655,7 +1186,7 @@
                     card.style.setProperty("--mx", (event.clientX - rect.left) + "px");
                     card.style.setProperty("--my", (event.clientY - rect.top) + "px");
 
-                    if (!card.classList.contains("experience-card")) {
+                    if (!card.classList.contains("experience-card") && !card.classList.contains("publication-card") && !card.classList.contains("portfolio-card-v2")) {
                         return;
                     }
 
@@ -711,13 +1242,42 @@
     <script>
         (function () {
             var modal = document.querySelector("[data-project-modal]");
+            var dialog = document.querySelector(".project-modal__dialog");
+            var shade = document.querySelector(".project-modal__shade");
             var modalContent = document.querySelector("[data-project-modal-content]");
             var closeButton = document.querySelector("[data-project-modal-close]");
             var cards = document.querySelectorAll(".portfolio-card-v2");
 
-            if (!modal || !modalContent || !closeButton || !cards.length) {
+            if (!modal || !dialog || !shade || !modalContent || !closeButton || !cards.length) {
                 return;
             }
+
+            var updateShade = function () {
+                var rect = dialog.getBoundingClientRect();
+                var max = dialog.scrollHeight - dialog.clientHeight;
+                var edge = max > 6 ? Math.min(Math.max(dialog.scrollTop, 0) / 72, 1) : 0;
+                var edgeEnd = max > 6 ? Math.min(Math.max(max - dialog.scrollTop, 0) / 72, 1) : 0;
+
+                shade.style.top = rect.top + "px";
+                shade.style.left = rect.left + "px";
+                shade.style.width = dialog.clientWidth + "px";
+                shade.style.height = dialog.clientHeight + "px";
+                dialog.style.setProperty("--edge", edge.toFixed(3));
+                dialog.style.setProperty("--edge-end", edgeEnd.toFixed(3));
+            };
+
+            dialog.addEventListener("pointermove", function (event) {
+                var rect = dialog.getBoundingClientRect();
+                dialog.style.setProperty("--mx", (event.clientX - rect.left) + "px");
+                dialog.style.setProperty("--my", (event.clientY - rect.top) + "px");
+            });
+
+            dialog.addEventListener("scroll", updateShade);
+            window.addEventListener("resize", function () {
+                if (modal.classList.contains("is-open")) {
+                    updateShade();
+                }
+            });
 
             var closeModal = function () {
                 modal.classList.remove("is-open");
@@ -726,18 +1286,92 @@
                 document.body.style.overflow = "";
             };
 
-            var openModal = function (card) {
+            var showCard = function (card) {
                 var clone = card.cloneNode(true);
                 clone.removeAttribute("tabindex");
                 clone.removeAttribute("role");
                 clone.classList.add("portfolio-card-v2--modal");
+                clone.style.transform = "none";
 
                 modalContent.innerHTML = "";
                 modalContent.appendChild(clone);
+            };
+
+            var githubRepo = function (card) {
+                var link = card.querySelector('a[href*="github.com/"]');
+
+                if (!link) {
+                    return "";
+                }
+
+                var match = link.href.match(/github\.com\/([^/]+)\/([^/#?]+)/i);
+                return match ? match[1] + "/" + match[2].replace(/\.git$/, "") : "";
+            };
+
+
+            var showReadme = function (html, card) {
+                var panel = document.createElement("div");
+                var colorClass = "";
+
+                card.classList.forEach(function (name) {
+                    if (name.indexOf("portfolio-card-v2--") === 0) {
+                        colorClass = name;
+                    }
+                });
+
+                panel.className = "project-readme" + (colorClass ? " " + colorClass : "");
+
+                var article = document.createElement("div");
+                article.innerHTML = html;
+                article.querySelectorAll("script, iframe, object, embed").forEach(function (node) {
+                    node.remove();
+                });
+                article.querySelectorAll("a[href]").forEach(function (anchor) {
+                    var href = anchor.getAttribute("href");
+
+                    if (href && href.charAt(0) !== "#") {
+                        anchor.target = "_blank";
+                        anchor.rel = "noopener noreferrer";
+                    }
+                });
+
+                var actions = document.createElement("div");
+                actions.className = "project-readme__actions";
+                card.querySelectorAll(".portfolio-card-v2__footer a").forEach(function (link) {
+                    actions.appendChild(link.cloneNode(true));
+                });
+
+                panel.appendChild(article);
+                if (actions.childNodes.length) {
+                    panel.appendChild(actions);
+                }
+
+                modalContent.innerHTML = "";
+                modalContent.appendChild(panel);
+            };
+
+            var openModal = function (card) {
+                var repo = githubRepo(card);
+                var stored = repo ? document.querySelector('template[data-readme="' + repo + '"]') : null;
+
+                var cardColor = window.getComputedStyle(card).getPropertyValue("--card").trim();
+
+                if (cardColor) {
+                    dialog.style.setProperty("--card", cardColor);
+                }
+
+                dialog.scrollTop = 0;
                 modal.classList.add("is-open");
                 modal.setAttribute("aria-hidden", "false");
                 document.body.style.overflow = "hidden";
                 closeButton.focus();
+                window.requestAnimationFrame(updateShade);
+
+                if (stored) {
+                    showReadme(stored.innerHTML, card);
+                } else {
+                    showCard(card);
+                }
             };
 
             cards.forEach(function (card) {
