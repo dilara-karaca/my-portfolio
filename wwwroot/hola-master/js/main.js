@@ -320,6 +320,11 @@
     
     var ssSmoothScroll = function () {
 
+        // Stacked sticky layout uses a dedicated capture-phase handler in index.html.
+        if ($('body').hasClass('is-stacked')) {
+            return;
+        }
+
         $('.smoothscroll').on('click', function (e) {
             var target = this.hash,
                 $target = $(target);
