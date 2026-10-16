@@ -16,12 +16,15 @@
         toggleButton.setAttribute("aria-pressed", String(isDark));
     };
 
-    var savedTheme = "light";
+    var savedTheme = "dark";
 
     try {
-        savedTheme = localStorage.getItem(STORAGE_KEY) === "dark" ? "dark" : "light";
+        var stored = localStorage.getItem(STORAGE_KEY);
+        if (stored === "light" || stored === "dark") {
+            savedTheme = stored;
+        }
     } catch (error) {
-        savedTheme = "light";
+        savedTheme = "dark";
     }
 
     applyTheme(savedTheme);

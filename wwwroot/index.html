@@ -568,17 +568,17 @@
 
     <script src="hola-master/js/modernizr.js"></script>
 
-    <link rel="stylesheet" href="css/stack.css?v=19">
+    <link rel="stylesheet" href="css/stack.css?v=23">
 
     <link rel="shortcut icon" href="assets/dk.icon.png" type="image/png">
     <link rel="icon" href="assets/dk.icon.png" type="image/png">
 </head>
 
-<body id="top" class="is-stacked">
+<body id="top" class="is-stacked theme-dark">
     <script>
         try {
-            if (localStorage.getItem("portfolio-theme") === "dark") {
-                document.body.classList.add("theme-dark");
+            if (localStorage.getItem("portfolio-theme") === "light") {
+                document.body.classList.remove("theme-dark");
             }
         } catch (error) {}
     </script>
@@ -587,13 +587,13 @@
             <ul class="header-nav">
                 <li class="current"><a class="smoothscroll" href="#home" title="home">ANA SAYFA</a></li>
                 <li><a class="smoothscroll" href="#about" title="about">HAKKIMDA</a></li>
-                <li><a class="smoothscroll" href="#works" title="works">PROJELERİM</a></li>
+                <li><a class="smoothscroll" href="#experience" title="experience">DENEYİMLERİM</a></li>
                 <li><a class="smoothscroll" href="#publications" title="publications">YAYINLARIM</a></li>
                 <li><a class="smoothscroll" href="#contact" title="contact">İLETİŞİM</a></li>
             </ul>
         </nav>
 
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Tema değiştir" aria-pressed="false">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Tema değiştir" aria-pressed="true">
             <img class="theme-toggle__icon" src="assets/dark_mode.png" alt="" aria-hidden="true">
         </button>
 
@@ -602,7 +602,7 @@
 
     <div class="page-stack">
     <section id="home" class="s-home page-hero target-section stack-card">
-        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="overlay"></div>
         <div class="shadow-overlay"></div>
 
@@ -640,7 +640,7 @@
     <div class="stack-spacer" aria-hidden="true"></div>
 
     <section id="about" class="s-about target-section stack-card stack-card--sheet stack-card--about">
-        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="row narrow section-intro has-bottom-sep">
             <div class="col-full text-center">
                 <h1>Hakkımda</h1>
@@ -699,8 +699,8 @@
     </section>
     <div class="stack-spacer" aria-hidden="true"></div>
 
-    <section id="experience" class="target-section stack-card stack-card--sheet stack-card--experience" data-nav="about">
-        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <section id="experience" class="target-section stack-card stack-card--sheet stack-card--experience">
+        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="row narrow section-intro experience-intro">
             <div class="col-full">
                 <h1>Deneyimlerim</h1>
@@ -736,7 +736,7 @@
     <div class="stack-spacer" aria-hidden="true"></div>
 
     <section id="works" class="s-works target-section stack-card stack-card--sheet stack-card--works">
-        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="row narrow section-intro">
             <div class="col-full">
                 <h1 id="works-title">Son Projelerime Göz Atın</h1>
@@ -996,7 +996,7 @@
 
     <div class="stack-hold">
     <section id="publications" class="target-section stack-card stack-card--sheet stack-card--publications">
-        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="row narrow section-intro">
             <div class="col-full">
                 <h1>Yayınlarım</h1>
@@ -1029,7 +1029,7 @@
     </div>
 
     <section id="contact" class="s-contact target-section stack-card stack-card--sheet">
-        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="row narrow section-intro">
             <div class="col-full">
                 <h1>Bana Ulaşın</h1>
@@ -1390,17 +1390,28 @@ It has been optimized to work smoothly on both desktop and mobile devices.</p>
                 track.style.transform = "translate3d(" + offsetFor(page) + "px,0,0)";
                 prev.disabled = page <= 0;
                 next.disabled = page >= pageCount - 1;
+                root.classList.toggle("has-more", page < pageCount - 1);
             }
 
             function nudge() {
                 if (nudged || reduce || pageCount < 2) return;
                 nudged = true;
-                track.style.transition = "transform 0.42s cubic-bezier(0.22, 1, 0.36, 1)";
-                track.style.transform = "translate3d(-22px,0,0)";
-                window.setTimeout(function () {
-                    track.style.transition = "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)";
-                    track.style.transform = "translate3d(0,0,0)";
-                }, 460);
+
+                function peek(distance, duration, hold) {
+                    return new Promise(function (resolve) {
+                        track.style.transition = "transform " + duration + "s cubic-bezier(0.22, 1, 0.36, 1)";
+                        track.style.transform = "translate3d(-" + distance + "px,0,0)";
+                        window.setTimeout(function () {
+                            track.style.transition = "transform 0.55s cubic-bezier(0.22, 1, 0.36, 1)";
+                            track.style.transform = "translate3d(0,0,0)";
+                            window.setTimeout(resolve, hold);
+                        }, Math.round(duration * 1000) + 80);
+                    });
+                }
+
+                peek(64, 0.48, 520).then(function () {
+                    return peek(48, 0.4, 420);
+                });
             }
 
             prev.addEventListener("click", function () { go(page - 1, true); });

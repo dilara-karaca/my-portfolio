@@ -3907,6 +3907,11 @@ body.theme-dark .home-social span {
     color: #f3e8f1;
 }
 
+body.theme-dark .home-content__scroll a::after {
+    border-bottom-color: #f3e8f1;
+    border-right-color: #f3e8f1;
+}
+
 body.theme-dark .s-about,
 body.theme-dark .s-works {
     background: #1a1522;
