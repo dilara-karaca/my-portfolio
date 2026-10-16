@@ -601,7 +601,9 @@
     </header>
 
     <div class="page-stack">
+    <div class="stack-pane">
     <section id="home" class="s-home page-hero target-section stack-card">
+        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="overlay"></div>
         <div class="shadow-overlay"></div>
 
@@ -636,9 +638,11 @@
             </div>
         </div>
     </section>
-    <div class="stack-spacer" aria-hidden="true"></div>
+    </div>
 
+    <div class="stack-pane">
     <section id="about" class="s-about target-section stack-card stack-card--sheet stack-card--about">
+        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="row narrow section-intro has-bottom-sep">
             <div class="col-full text-center">
                 <h1>Hakkımda</h1>
@@ -695,9 +699,11 @@
             </div>
         </div>
     </section>
-    <div class="stack-spacer" aria-hidden="true"></div>
+    </div>
 
+    <div class="stack-pane">
     <section id="experience" class="target-section stack-card stack-card--sheet stack-card--experience" data-nav="about">
+        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="row narrow section-intro experience-intro">
             <div class="col-full">
                 <h1>Deneyimlerim</h1>
@@ -730,9 +736,11 @@
             </article>
         </div>
     </section>
-    <div class="stack-spacer" aria-hidden="true"></div>
+    </div>
 
+    <div class="stack-pane">
     <section id="works" class="s-works target-section stack-card stack-card--sheet stack-card--works">
+        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="row narrow section-intro">
             <div class="col-full">
                 <h1 id="works-title">Son Projelerime Göz Atın</h1>
@@ -741,7 +749,10 @@
             </div>
         </div>
 
-        <div class="portfolio-grid-v2">
+        <div class="works-carousel" data-works-carousel>
+            <button class="works-carousel__nav works-carousel__nav--prev" type="button" aria-label="Önceki projeler"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.25 6.5 8.75 12l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="works-carousel__viewport">
+                <div class="portfolio-grid-v2 works-carousel__track">
             <div class="portfolio-card-v2 portfolio-card-v2--blue">
                 <div class="portfolio-card-v2__top">Sens-AI</div>
                 <div class="portfolio-card-v2__body">
@@ -808,65 +819,6 @@
             </div>
 
             <div class="portfolio-card-v2 portfolio-card-v2--purple">
-                <div class="portfolio-card-v2__top">L-AI</div>
-                <div class="portfolio-card-v2__body">
-                    <h3 class="portfolio-card-v2__title">Livera</h3>
-                    <p class="portfolio-card-v2__desc">Flask tabanlı, karaciğer sağlık durumunu sorgulayan chatbot. Hem
-                        CSV veri seti hem de Gemini API kullanılarak cevap üretir.</p>
-                    <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">Python</span></div>
-                </div>
-                <div class="portfolio-card-v2__footer"><a href="https://github.com/dilara-karaca/karaciger_chatbot"
-                        target="_blank" rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a></div>
-            </div>
-
-            <div class="portfolio-card-v2 portfolio-card-v2--indigo">
-                <div class="portfolio-card-v2__top">L-CMP</div>
-                <div class="portfolio-card-v2__body">
-                    <h3 class="portfolio-card-v2__title">Livera AI Comparison Chatbot</h3>
-                    <p class="portfolio-card-v2__desc">Hibrit bir soru-cevap sistemi. Groq, Gemini ve Poe cevaplarını
-                        karşılaştırarak karaciğer hastalıklarına yönelik sonuç üretir.</p>
-                    <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">HTML</span><span
-                            class="portfolio-card-v2__tech">Python</span></div>
-                </div>
-                <div class="portfolio-card-v2__footer"><a
-                        href="https://github.com/dilara-karaca/liver-artificial-intelligence-comparison" target="_blank"
-                        rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a></div>
-            </div>
-
-            <div class="portfolio-card-v2 portfolio-card-v2--pink">
-                <div class="portfolio-card-v2__top">VD</div>
-                <div class="portfolio-card-v2__body">
-                    <h3 class="portfolio-card-v2__title">Valentine's Day Game</h3>
-                    <p class="portfolio-card-v2__desc">Çok aşamalı interaktif web oyunu. Farklı oyun mekaniklerinden
-                        oluşan seviyeler içerir: şifre çözme, eşleştirme, hafıza oyunu ve platform oyunu. Kullanıcı
-                        ilerledikçe her aşamada farklı bir deneyim sunarak etkileşimli ve akışkan bir oyun kurgusu
-                        sağlar.</p>
-                    <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">HTML</span><span
-                            class="portfolio-card-v2__tech">CSS</span><span
-                            class="portfolio-card-v2__tech">JavaScript</span></div>
-                </div>
-                <div class="portfolio-card-v2__footer"><a href="https://github.com/dilara-karaca/valentines-day"
-                        target="_blank" rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a></div>
-            </div>
-
-            <div class="portfolio-card-v2 portfolio-card-v2--rose">
-                <div class="portfolio-card-v2__top">WJ</div>
-                <div class="portfolio-card-v2__body">
-                    <h3 class="portfolio-card-v2__title">New Year Wish Jar</h3>
-                    <p class="portfolio-card-v2__desc">Etkileşimli bir yılbaşı dilek kavanozu. HTML, CSS, JS ile
-                        geliştirilen zarf animasyonları ve responsive tasarıma sahip web projesi.</p>
-                    <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">HTML</span><span
-                            class="portfolio-card-v2__tech">CSS</span><span
-                            class="portfolio-card-v2__tech">JavaScript</span></div>
-                </div>
-                <div class="portfolio-card-v2__footer"><a
-                        href="https://github.com/dilara-karaca/yeni-yil-dilek-kavanozu" target="_blank"
-                        rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a><a
-                        href="https://yeni-yil-dilek-kavanozu-dk.netlify.app/" target="_blank" rel="noopener noreferrer"
-                        class="portfolio-card-v2__btn">Live Demo</a></div>
-            </div>
-
-            <div class="portfolio-card-v2 portfolio-card-v2--blue">
                 <div class="portfolio-card-v2__top">KLM</div>
                 <div class="portfolio-card-v2__body">
                     <h3 class="portfolio-card-v2__title">Kelimatik</h3>
@@ -893,7 +845,7 @@
                         target="_blank" rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a></div>
             </div>
 
-            <div class="portfolio-card-v2 portfolio-card-v2--green">
+            <div class="portfolio-card-v2 portfolio-card-v2--pink">
                 <div class="portfolio-card-v2__top">FT</div>
                 <div class="portfolio-card-v2__body">
                     <h3 class="portfolio-card-v2__title">Fizyolojik Takip</h3>
@@ -907,10 +859,10 @@
                         target="_blank" rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a></div>
             </div>
 
-            <div class="portfolio-card-v2 portfolio-card-v2--teal">
+            <div class="portfolio-card-v2 portfolio-card-v2--rose">
                 <div class="portfolio-card-v2__top">FT-W</div>
                 <div class="portfolio-card-v2__body">
-                    <h3 class="portfolio-card-v2__title">SENS-AI İzleme Paneli</h3>
+                    <h3 class="portfolio-card-v2__title">Fizyolojik Takip İzleme Paneli</h3>
                     <p class="portfolio-card-v2__desc">Sağlık personeli için merkezi web paneli. Personelin fizyolojik
                         verilerini Normal, Dikkat ve Kritik olarak sınıflandırır; alarm ve müdahale akışını gösterir.</p>
                     <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">React</span><span
@@ -922,22 +874,33 @@
                         rel="noopener noreferrer" class="portfolio-card-v2__btn">Live Demo</a></div>
             </div>
 
-            <div class="portfolio-card-v2 portfolio-card-v2--orange">
-                <div class="portfolio-card-v2__top">TODO</div>
+            <div class="portfolio-card-v2 portfolio-card-v2--blue">
+                <div class="portfolio-card-v2__top">L-AI</div>
                 <div class="portfolio-card-v2__body">
-                    <h3 class="portfolio-card-v2__title">Planner</h3>
-                    <p class="portfolio-card-v2__desc">Etkileşimli takvim ve günlük görev yönetimi sunan yapılacaklar
-                        uygulaması. Supabase ile giriş, kullanıcı rolleri ve admin paneli içerir.</p>
-                    <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">React</span><span
-                            class="portfolio-card-v2__tech">Supabase</span></div>
+                    <h3 class="portfolio-card-v2__title">Livera</h3>
+                    <p class="portfolio-card-v2__desc">Flask tabanlı, karaciğer sağlık durumunu sorgulayan chatbot. Hem
+                        CSV veri seti hem de Gemini API kullanılarak cevap üretir.</p>
+                    <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">Python</span></div>
                 </div>
-                <div class="portfolio-card-v2__footer"><a href="https://github.com/dilara-karaca/to_do_list"
-                        target="_blank" rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a><a
-                        href="https://to-do-list-dilos1.vercel.app" target="_blank" rel="noopener noreferrer"
-                        class="portfolio-card-v2__btn">Live Demo</a></div>
+                <div class="portfolio-card-v2__footer"><a href="https://github.com/dilara-karaca/karaciger_chatbot"
+                        target="_blank" rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a></div>
             </div>
 
-            <div class="portfolio-card-v2 portfolio-card-v2--purple">
+            <div class="portfolio-card-v2 portfolio-card-v2--green">
+                <div class="portfolio-card-v2__top">L-CMP</div>
+                <div class="portfolio-card-v2__body">
+                    <h3 class="portfolio-card-v2__title">Livera AI Comparison Chatbot</h3>
+                    <p class="portfolio-card-v2__desc">Hibrit bir soru-cevap sistemi. Groq, Gemini ve Poe cevaplarını
+                        karşılaştırarak karaciğer hastalıklarına yönelik sonuç üretir.</p>
+                    <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">HTML</span><span
+                            class="portfolio-card-v2__tech">Python</span></div>
+                </div>
+                <div class="portfolio-card-v2__footer"><a
+                        href="https://github.com/dilara-karaca/liver-artificial-intelligence-comparison" target="_blank"
+                        rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a></div>
+            </div>
+
+            <div class="portfolio-card-v2 portfolio-card-v2--teal">
                 <div class="portfolio-card-v2__top">KPSS</div>
                 <div class="portfolio-card-v2__body">
                     <h3 class="portfolio-card-v2__title">KPSS Net Hesaplama</h3>
@@ -953,23 +916,42 @@
                         class="portfolio-card-v2__btn">Live Demo</a></div>
             </div>
 
-            <div class="portfolio-card-v2 portfolio-card-v2--rose">
-                <div class="portfolio-card-v2__top">CMPX</div>
+            <div class="portfolio-card-v2 portfolio-card-v2--orange">
+                <div class="portfolio-card-v2__top">KPSS</div>
                 <div class="portfolio-card-v2__body">
-                    <h3 class="portfolio-card-v2__title">CompileX</h3>
-                    <p class="portfolio-card-v2__desc">İki geçişli derleyici. Leksikal, sözdizimi ve semantik analiz
-                        yapar; token, sembol tablosu ve AST sonuçlarını Flask arayüzünde gösterir.</p>
-                    <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">Python</span><span
-                            class="portfolio-card-v2__tech">Flask</span></div>
+                    <h3 class="portfolio-card-v2__title">KPSS Sayaç</h3>
+                    <p class="portfolio-card-v2__desc">KPSS 2026'ya kalan süreyi anlık gösteren sade bir geri sayım
+                        uygulaması.</p>
+                    <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">HTML</span><span
+                            class="portfolio-card-v2__tech">CSS</span><span
+                            class="portfolio-card-v2__tech">JavaScript</span></div>
                 </div>
-                <div class="portfolio-card-v2__footer"><a href="https://github.com/dilara-karaca/CompileX"
+                <div class="portfolio-card-v2__footer"><a href="https://github.com/dilara-karaca/kpss_sayac"
+                        target="_blank" rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a><a
+                        href="https://kpss-lisans-sayac.vercel.app/" target="_blank" rel="noopener noreferrer"
+                        class="portfolio-card-v2__btn">Live Demo</a></div>
+            </div>
+
+            <div class="portfolio-card-v2 portfolio-card-v2--purple">
+                <div class="portfolio-card-v2__top">VD</div>
+                <div class="portfolio-card-v2__body">
+                    <h3 class="portfolio-card-v2__title">Valentine's Day Game</h3>
+                    <p class="portfolio-card-v2__desc">Çok aşamalı interaktif web oyunu. Farklı oyun mekaniklerinden
+                        oluşan seviyeler içerir: şifre çözme, eşleştirme, hafıza oyunu ve platform oyunu. Kullanıcı
+                        ilerledikçe her aşamada farklı bir deneyim sunarak etkileşimli ve akışkan bir oyun kurgusu
+                        sağlar.</p>
+                    <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">HTML</span><span
+                            class="portfolio-card-v2__tech">CSS</span><span
+                            class="portfolio-card-v2__tech">JavaScript</span></div>
+                </div>
+                <div class="portfolio-card-v2__footer"><a href="https://github.com/dilara-karaca/valentines-day"
                         target="_blank" rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a></div>
             </div>
 
-            <div class="portfolio-card-v2 portfolio-card-v2--pink">
+            <div class="portfolio-card-v2 portfolio-card-v2--indigo">
                 <div class="portfolio-card-v2__top">SOLO</div>
                 <div class="portfolio-card-v2__body">
-                    <h3 class="portfolio-card-v2__title">Peg Solitaire</h3>
+                    <h3 class="portfolio-card-v2__title">Solo Test Game</h3>
                     <p class="portfolio-card-v2__desc">Klasik kurallar ve puanlama sistemiyle Flutter tabanlı Peg
                         Solitaire oyunu.</p>
                     <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">Flutter</span></div>
@@ -977,11 +959,48 @@
                 <div class="portfolio-card-v2__footer"><a href="https://github.com/dilara-karaca/solo_test"
                         target="_blank" rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a></div>
             </div>
+
+            <div class="portfolio-card-v2 portfolio-card-v2--pink">
+                <div class="portfolio-card-v2__top">WJ</div>
+                <div class="portfolio-card-v2__body">
+                    <h3 class="portfolio-card-v2__title">New Year Wish Jar</h3>
+                    <p class="portfolio-card-v2__desc">Etkileşimli bir yılbaşı dilek kavanozu. HTML, CSS, JS ile
+                        geliştirilen zarf animasyonları ve responsive tasarıma sahip web projesi.</p>
+                    <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">HTML</span><span
+                            class="portfolio-card-v2__tech">CSS</span><span
+                            class="portfolio-card-v2__tech">JavaScript</span></div>
+                </div>
+                <div class="portfolio-card-v2__footer"><a
+                        href="https://github.com/dilara-karaca/yeni-yil-dilek-kavanozu" target="_blank"
+                        rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a><a
+                        href="https://yeni-yil-dilek-kavanozu-dk.netlify.app/" target="_blank" rel="noopener noreferrer"
+                        class="portfolio-card-v2__btn">Live Demo</a></div>
+            </div>
+
+            <div class="portfolio-card-v2 portfolio-card-v2--rose">
+                <div class="portfolio-card-v2__top">TODO</div>
+                <div class="portfolio-card-v2__body">
+                    <h3 class="portfolio-card-v2__title">Planner</h3>
+                    <p class="portfolio-card-v2__desc">Etkileşimli takvim ve günlük görev yönetimi sunan yapılacaklar
+                        uygulaması. Supabase ile giriş, kullanıcı rolleri ve admin paneli içerir.</p>
+                    <div class="portfolio-card-v2__tech-list"><span class="portfolio-card-v2__tech">React</span><span
+                            class="portfolio-card-v2__tech">Supabase</span></div>
+                </div>
+                <div class="portfolio-card-v2__footer"><a href="https://github.com/dilara-karaca/to_do_list"
+                        target="_blank" rel="noopener noreferrer" class="portfolio-card-v2__btn">GitHub</a><a
+                        href="https://to-do-list-dilos1.vercel.app" target="_blank" rel="noopener noreferrer"
+                        class="portfolio-card-v2__btn">Live Demo</a></div>
+            </div>
+                </div>
+            </div>
+            <button class="works-carousel__nav works-carousel__nav--next" type="button" aria-label="Sonraki projeler"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.75 6.5 15.25 12l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
     </section>
-    <div class="stack-spacer" aria-hidden="true"></div>
+    </div>
 
+    <div class="stack-pane">
     <section id="publications" class="target-section stack-card stack-card--sheet stack-card--publications">
+        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="row narrow section-intro">
             <div class="col-full">
                 <h1>Yayınlarım</h1>
@@ -1010,9 +1029,11 @@
             </article>
         </div>
     </section>
-    <div class="stack-spacer" aria-hidden="true"></div>
+    </div>
 
+    <div class="stack-pane">
     <section id="contact" class="s-contact target-section stack-card stack-card--sheet">
+        <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="row narrow section-intro">
             <div class="col-full">
                 <h1>Bana Ulaşın</h1>
@@ -1069,6 +1090,7 @@
         </div>
     </footer>
     </section>
+    </div>
     </div>
 
 <template data-readme="dilara-karaca/restaurant-management-system">
@@ -1316,6 +1338,146 @@ It has been optimized to work smoothly on both desktop and mobile devices.</p>
     </script>
     <script>
         (function () {
+            var root = document.querySelector("[data-works-carousel]");
+            if (!root) return;
+
+            var viewport = root.querySelector(".works-carousel__viewport");
+            var track = root.querySelector(".works-carousel__track");
+            var prev = root.querySelector(".works-carousel__nav--prev");
+            var next = root.querySelector(".works-carousel__nav--next");
+            var page = 0;
+            var pageCount = 1;
+            var dragging = false;
+            var moved = false;
+            var startX = 0;
+            var startOffset = 0;
+            var nudged = false;
+            var size = 6;
+            var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            function perPage() {
+                if (window.innerWidth <= 720) return 2;
+                if (window.innerWidth <= 1100) return 4;
+                return 6;
+            }
+
+            function cards() {
+                return Array.prototype.slice.call(track.querySelectorAll(".portfolio-card-v2"));
+            }
+
+            function layout() {
+                var nextSize = perPage();
+                var all = cards();
+                if (!all.length) return;
+                if (nextSize === size && track.querySelector(".works-carousel__page")) return;
+                size = nextSize;
+                track.innerHTML = "";
+                for (var i = 0; i < all.length; i += size) {
+                    var sheet = document.createElement("div");
+                    sheet.className = "works-carousel__page";
+                    all.slice(i, i + size).forEach(function (card) {
+                        sheet.appendChild(card);
+                    });
+                    track.appendChild(sheet);
+                }
+                pageCount = track.children.length;
+                page = Math.min(page, pageCount - 1);
+                go(page, false);
+            }
+
+            function offsetFor(index) {
+                return -index * viewport.clientWidth;
+            }
+
+            function go(index, animate) {
+                page = Math.max(0, Math.min(index, pageCount - 1));
+                track.style.transition = animate === false || reduce ? "none" : "";
+                track.style.transform = "translate3d(" + offsetFor(page) + "px,0,0)";
+                prev.disabled = page <= 0;
+                next.disabled = page >= pageCount - 1;
+            }
+
+            function nudge() {
+                if (nudged || reduce || pageCount < 2) return;
+                nudged = true;
+                track.style.transition = "transform 0.42s cubic-bezier(0.22, 1, 0.36, 1)";
+                track.style.transform = "translate3d(-22px,0,0)";
+                window.setTimeout(function () {
+                    track.style.transition = "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)";
+                    track.style.transform = "translate3d(0,0,0)";
+                }, 460);
+            }
+
+            prev.addEventListener("click", function () { go(page - 1, true); });
+            next.addEventListener("click", function () { go(page + 1, true); });
+
+            viewport.addEventListener("pointerdown", function (event) {
+                if (event.button !== 0) return;
+                dragging = true;
+                moved = false;
+                startX = event.clientX;
+                startOffset = offsetFor(page);
+                track.style.transition = "none";
+                viewport.classList.add("is-dragging");
+                viewport.setPointerCapture(event.pointerId);
+            });
+
+            viewport.addEventListener("pointermove", function (event) {
+                if (!dragging) return;
+                var dx = event.clientX - startX;
+                if (Math.abs(dx) > 8) moved = true;
+                track.style.transform = "translate3d(" + (startOffset + dx) + "px,0,0)";
+            });
+
+            function endDrag(event) {
+                if (!dragging) return;
+                dragging = false;
+                viewport.classList.remove("is-dragging");
+                var dx = event.clientX - startX;
+                var width = viewport.clientWidth || 1;
+                var target = page;
+                if (dx < -width * 0.14 && page < pageCount - 1) target += 1;
+                if (dx > width * 0.14 && page > 0) target -= 1;
+                track.style.transition = "";
+                go(target, true);
+            }
+
+            viewport.addEventListener("pointerup", endDrag);
+            viewport.addEventListener("pointercancel", endDrag);
+
+            viewport.addEventListener("click", function (event) {
+                if (!moved) return;
+                event.preventDefault();
+                event.stopPropagation();
+                moved = false;
+            }, true);
+
+            layout();
+
+            if ("IntersectionObserver" in window) {
+                var seen = false;
+                var observer = new IntersectionObserver(function (entries) {
+                    if (!entries[0].isIntersecting || seen) return;
+                    seen = true;
+                    window.setTimeout(nudge, 280);
+                    observer.disconnect();
+                }, { threshold: 0.45 });
+                observer.observe(root);
+            }
+
+            var resizeTimer;
+            window.addEventListener("resize", function () {
+                window.clearTimeout(resizeTimer);
+                resizeTimer = window.setTimeout(function () {
+                    var before = size;
+                    layout();
+                    if (before === size) go(page, false);
+                }, 120);
+            });
+        })();
+    </script>
+    <script>
+        (function () {
             var links = document.querySelectorAll('a.smoothscroll[href^="#"]');
 
             links.forEach(function (link) {
@@ -1517,6 +1679,55 @@ It has been optimized to work smoothly on both desktop and mobile devices.</p>
                     closeModal();
                 }
             });
+        })();
+    </script>
+    <script>
+        (function () {
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+            var selectors = [
+                "#about .section-intro h1",
+                "#about .about-content .left",
+                "#about .skill-bars li",
+                "#about .about-content--buttons",
+                "#experience .section-intro h1",
+                "#experience .section-intro .lead",
+                "#works .section-intro h1",
+                "#works .section-intro .lead",
+                "#publications .section-intro h1",
+                "#contact .section-intro h1",
+                "#contact .section-intro .lead",
+                "#contact .contact__panel"
+            ];
+            var items = [];
+
+            document.documentElement.classList.add("motion-on");
+
+            selectors.forEach(function (selector) {
+                document.querySelectorAll(selector).forEach(function (el) {
+                    items.push(el);
+                });
+            });
+
+            items.forEach(function (el, index) {
+                el.classList.add("motion-rise");
+                el.style.animationDelay = ((index % 4) * 0.05) + "s";
+            });
+
+            function reveal() {
+                var limit = window.innerHeight * 0.82;
+                items.forEach(function (el) {
+                    if (el.classList.contains("is-shown")) return;
+                    var rect = el.getBoundingClientRect();
+                    if (rect.top < limit && rect.bottom > 40) {
+                        el.classList.add("is-shown");
+                    }
+                });
+            }
+
+            reveal();
+            window.addEventListener("scroll", reveal, { passive: true });
+            window.addEventListener("resize", reveal);
         })();
     </script>
 </body>
