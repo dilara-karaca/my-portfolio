@@ -2,15 +2,15 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="tr">
 
 @await Component.InvokeAsync("_HeadComponentPartial")
 
-<body id="top">
+<body id="top" class="theme-dark">
     <script>
         try {
-            if (localStorage.getItem("portfolio-theme") === "dark") {
-                document.body.classList.add("theme-dark");
+            if (localStorage.getItem("portfolio-theme") === "light") {
+                document.body.classList.remove("theme-dark");
             }
         } catch (error) {}
     </script>
@@ -20,7 +20,6 @@
     @await Component.InvokeAsync("_FeatureComponentPartial")
 
     @await Component.InvokeAsync("_AboutComponentPartial")
-
 
     @await Component.InvokeAsync("_PortfolioComponentPartial")
 

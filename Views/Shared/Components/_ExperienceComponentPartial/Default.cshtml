@@ -1,37 +1,39 @@
 @model List<Experience>
-<div class="row narrow section-intro" style="margin-bottom: 3rem;">
-    <div class="col-full text-center">
-        <h1>Deneyimlerim</h1>
+
+<section id="experience" class="target-section">
+    <div class="row narrow section-intro" style="margin-bottom: 3rem;">
+        <div class="col-full text-center">
+            <h1>Deneyimlerim</h1>
+        </div>
     </div>
-</div>
 
-<div class="row about-content about-content--timeline">
-
-    @foreach (var item in Model)
-    {
-        <div class="col-six tab-full left">
-            <div class="timeline">
-
-
-                <div class="timeline__block">
-                    <div class="timeline__bullet"></div>
-                    <div class="timeline__header">
-                        <p class="timeline__timeframe">@item.Date</p>
-                        <h5>@item.Head</h5>
-                        <h3>@item.Title</h3>
-                    </div>
-                    <div class="timeline__desc">
-                        <p>Teknoloji Transfer Ofisi'nde yürüttüğüm staj kapsamında araştırma ve inovasyon süreçlerini aktif
-                            olarak deneyimliyorum. Ulusal ve bilimsel araştırma projelerinin başvuru ve planlama aşamalarını
-                            gözlemleyerek proje yönetimi süreçlerine dair pratik bilgi kazanıyorum.</p>
-
-                            <p>Üniversite-sanayi iş birliği projelerinde görev alarak fon başvurusu ve raporlama süreçlerine
-                                destek sağlıyor, kurumsal işleyiş ve ekip dinamikleri hakkında deneyim ediniyorum. Bu süreç,
-                                Ar-Ge ve inovasyon odaklı kariyer hedeflerimi güçlendirmektedir.</p>
+    <div class="row about-content about-content--timeline">
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-six tab-full left">
+                    <div class="timeline">
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <p class="timeline__timeframe">@item.Date</p>
+                                <h5>@item.Head</h5>
+                                <h3>@item.Title</h3>
+                            </div>
+                            <div class="timeline__desc">
+                                @if (!string.IsNullOrWhiteSpace(item.Description))
+                                {
+                                    @foreach (var paragraph in item.Description.Split(new[] { "\n\n" }, StringSplitOptions.RemoveEmptyEntries))
+                                    {
+                                        <p>@paragraph</p>
+                                    }
+                                }
                             </div>
                         </div>
                     </div>
                 </div>
             }
-
-        </div>
+        }
+    </div>
+</section>

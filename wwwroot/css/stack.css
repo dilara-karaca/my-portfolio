@@ -119,15 +119,13 @@
 }
 
 .is-stacked .s-contact.stack-card {
-    position: relative;
-    top: auto;
+    position: sticky;
+    top: 0;
     z-index: 6;
-    border-radius: 0;
+    border-radius: 2.8rem 2.8rem 0 0;
     background: linear-gradient(165deg, #f9f4ff 0%, #f6e8f0 55%, #eef6f3 100%);
     padding-bottom: 2rem;
     margin-top: 0;
-    /* Last sheet: no sticky/filter overlap — avoids bottom flicker */
-    filter: none;
     animation: none;
     overflow: hidden;
     isolation: isolate;

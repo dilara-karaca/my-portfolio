@@ -21,14 +21,17 @@
     <h3>Programlama Dilleri & Teknolojiler</h3>
 
     <ul class="skill-bars">
-        @foreach (var item in Model)
+        @if (Model != null)
         {
-            <li>
-                <div class="skill-card">
-                    <strong>@item.Title</strong>
-                    <span class="skill-card__level">@GetSkillLevel(item.Value)</span>
-                </div>
-            </li>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <div class="skill-card">
+                        <strong>@item.Title</strong>
+                        <span class="skill-card__level">@GetSkillLevel(item.Value)</span>
+                    </div>
+                </li>
+            }
         }
     </ul>
 </div>

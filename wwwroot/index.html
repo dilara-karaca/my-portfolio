@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="hola-master/css/base.css">
     <link rel="stylesheet" href="hola-master/css/vendor.css">
-    <link rel="stylesheet" href="hola-master/css/main.css">
+    <link rel="stylesheet" href="hola-master/css/main.css?v=2">
     <style>
         .experience-grid {
             width: min(108rem, 100%);
@@ -568,7 +568,7 @@
 
     <script src="hola-master/js/modernizr.js"></script>
 
-    <link rel="stylesheet" href="css/stack.css?v=23">
+    <link rel="stylesheet" href="css/stack.css?v=25">
 
     <link rel="shortcut icon" href="assets/dk.icon.png" type="image/png">
     <link rel="icon" href="assets/dk.icon.png" type="image/png">
@@ -994,7 +994,6 @@
     </section>
     <div class="stack-spacer" aria-hidden="true"></div>
 
-    <div class="stack-hold">
     <section id="publications" class="target-section stack-card stack-card--sheet stack-card--publications">
         <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="row narrow section-intro">
@@ -1022,11 +1021,12 @@
                 <p class="publication-card__venue">ICSET-25</p>
                 <p class="publication-card__event">International Conference on Science, Engineering &amp; Technology</p>
                 <h3>Kronik Hastalar için Mobil Sağlık Takip Uygulaması</h3>
+                <p class="publication-card__authors">Karaca, Z. D.</p>
+                <span class="publication-card__status">Yayınlandı</span>
             </article>
         </div>
     </section>
     <div class="stack-spacer" aria-hidden="true"></div>
-    </div>
 
     <section id="contact" class="s-contact target-section stack-card stack-card--sheet">
         <div class="sparkle-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
@@ -1298,7 +1298,7 @@ It has been optimized to work smoothly on both desktop and mobile devices.</p>
 
     <script src="hola-master/js/jquery-3.2.1.min.js"></script>
     <script src="hola-master/js/plugins.js"></script>
-    <script src="hola-master/js/main.js"></script>
+    <script src="hola-master/js/main.js?v=2"></script>
     <script src="hola-master/js/theme-toggle.js"></script>
     <script>
         (function () {
@@ -1340,6 +1340,7 @@ It has been optimized to work smoothly on both desktop and mobile devices.</p>
             var track = root.querySelector(".works-carousel__track");
             var prev = root.querySelector(".works-carousel__nav--prev");
             var next = root.querySelector(".works-carousel__nav--next");
+            if (!viewport || !track || !prev || !next) return;
             var page = 0;
             var pageCount = 1;
             var dragging = false;
@@ -1425,7 +1426,9 @@ It has been optimized to work smoothly on both desktop and mobile devices.</p>
                 startOffset = offsetFor(page);
                 track.style.transition = "none";
                 viewport.classList.add("is-dragging");
-                viewport.setPointerCapture(event.pointerId);
+                try {
+                    viewport.setPointerCapture(event.pointerId);
+                } catch (error) {}
             });
 
             viewport.addEventListener("pointermove", function (event) {

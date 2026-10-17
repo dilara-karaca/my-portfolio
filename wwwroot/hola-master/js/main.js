@@ -233,12 +233,22 @@
             return;
         }
 
+        var sectionDocTop = function (el) {
+            var top = 0;
+            var node = el;
+            while (node) {
+                top += node.offsetTop || 0;
+                node = node.offsetParent;
+            }
+            return top;
+        };
+
         var updateCurrent = function () {
             var marker = (window.pageYOffset || 0) + 120;
             var currentId = sections.get(0).id;
 
             sections.each(function () {
-                if (this.offsetTop <= marker) {
+                if (sectionDocTop(this) <= marker) {
                     currentId = this.getAttribute("data-nav") || this.id;
                 }
             });

@@ -1944,24 +1944,26 @@ body.theme-dark .theme-toggle::before {
 .home-content__buttons .btn {
     display: block;
     width: 210px;
-    background: rgba(255, 255, 255, 0.72) !important;
-    border-color: #b97397;
-    color: #7b2f57;
+    background: rgba(255, 248, 252, 0.55) !important;
+    border: 1px solid rgba(185, 115, 151, 0.45);
+    border-radius: 1.2rem;
+    color: #6e3a55;
     margin: 1.5rem 0 0 0;
-    letter-spacing: .25rem;
-    font-weight: 800;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
-    box-shadow: 0 8px 24px rgba(132, 70, 106, 0.16);
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+    letter-spacing: .22rem;
+    font-weight: 700;
+    text-shadow: none;
+    box-shadow: 0 0.6rem 1.6rem rgba(110, 58, 85, 0.1);
+    -webkit-transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+    transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
 }
 
 .home-content__buttons .btn:hover,
 .home-content__buttons .btn:focus {
-    background: #bf83a5 !important;
-    border-color: #bf83a5;
-    color: #ffffff;
-    box-shadow: 0 10px 26px rgba(132, 70, 106, 0.28);
+    background: rgba(214, 163, 191, 0.88) !important;
+    border-color: rgba(190, 130, 160, 0.7);
+    color: #3d2232;
+    box-shadow: 0 0.8rem 2rem rgba(110, 58, 85, 0.18);
+    transform: translateY(-0.15rem);
 }
 
 .home-content__scroll {
@@ -3910,6 +3912,22 @@ body.theme-dark .home-social span {
 body.theme-dark .home-content__scroll a::after {
     border-bottom-color: #f3e8f1;
     border-right-color: #f3e8f1;
+}
+
+body.theme-dark .home-content__buttons .btn {
+    background: rgba(42, 34, 54, 0.72) !important;
+    border: 1px solid rgba(232, 190, 215, 0.35);
+    color: #f3e8f1;
+    text-shadow: none;
+    box-shadow: 0 0.6rem 1.8rem rgba(0, 0, 0, 0.28);
+}
+
+body.theme-dark .home-content__buttons .btn:hover,
+body.theme-dark .home-content__buttons .btn:focus {
+    background: rgba(93, 61, 83, 0.92) !important;
+    border-color: rgba(243, 232, 241, 0.55);
+    color: #ffffff;
+    box-shadow: 0 0.8rem 2.2rem rgba(0, 0, 0, 0.36);
 }
 
 body.theme-dark .s-about,
