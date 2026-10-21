@@ -565,7 +565,7 @@
 
     <script src="hola-master/js/modernizr.js"></script>
 
-    <link rel="stylesheet" href="css/stack.css?v=27">
+    <link rel="stylesheet" href="css/stack.css?v=28">
 
     <link rel="shortcut icon" href="assets/dk.icon.png" type="image/png">
     <link rel="icon" href="assets/dk.icon.png" type="image/png">
@@ -1295,7 +1295,7 @@ It has been optimized to work smoothly on both desktop and mobile devices.</p>
 
     <script src="hola-master/js/jquery-3.2.1.min.js"></script>
     <script src="hola-master/js/plugins.js"></script>
-    <script src="hola-master/js/main.js?v=2"></script>
+    <script src="hola-master/js/main.js?v=3"></script>
     <script src="hola-master/js/theme-toggle.js"></script>
     <script>
         (function () {
@@ -1740,20 +1740,34 @@ It has been optimized to work smoothly on both desktop and mobile devices.</p>
                 el.style.animationDelay = ((index % 4) * 0.05) + "s";
             });
 
+            var ticking = false;
+
             function reveal() {
+                ticking = false;
                 var limit = window.innerHeight * 0.82;
-                items.forEach(function (el) {
-                    if (el.classList.contains("is-shown")) return;
+                items = items.filter(function (el) {
                     var rect = el.getBoundingClientRect();
                     if (rect.top < limit && rect.bottom > 40) {
                         el.classList.add("is-shown");
+                        return false;
                     }
+                    return true;
                 });
+                if (!items.length) {
+                    window.removeEventListener("scroll", onScroll);
+                    window.removeEventListener("resize", onScroll);
+                }
+            }
+
+            function onScroll() {
+                if (ticking) return;
+                ticking = true;
+                window.requestAnimationFrame(reveal);
             }
 
             reveal();
-            window.addEventListener("scroll", reveal, { passive: true });
-            window.addEventListener("resize", reveal);
+            window.addEventListener("scroll", onScroll, { passive: true });
+            window.addEventListener("resize", onScroll);
         })();
     </script>
 </body>

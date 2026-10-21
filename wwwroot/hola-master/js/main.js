@@ -56,28 +56,20 @@
             triggerHeight = hero.outerHeight() - 170;
 
 
+        var headerTicking = false;
+
         $WIN.on('scroll', function () {
+            if (headerTicking) return;
+            headerTicking = true;
 
-            var loc = $WIN.scrollTop();
+            window.requestAnimationFrame(function () {
+                headerTicking = false;
+                var loc = window.pageYOffset || 0;
 
-            if (loc > triggerHeight) {
-                hdr.addClass('sticky');
-            } else {
-                hdr.removeClass('sticky');
-            }
-
-            if (loc > triggerHeight + 20) {
-                hdr.addClass('offset');
-            } else {
-                hdr.removeClass('offset');
-            }
-
-            if (loc > triggerHeight + 150) {
-                hdr.addClass('scrolling');
-            } else {
-                hdr.removeClass('scrolling');
-            }
-
+                hdr.toggleClass('sticky', loc > triggerHeight);
+                hdr.toggleClass('offset', loc > triggerHeight + 20);
+                hdr.toggleClass('scrolling', loc > triggerHeight + 150);
+            });
         });
 
 
@@ -243,21 +235,41 @@
             return top;
         };
 
-        var updateCurrent = function () {
-            var marker = (window.pageYOffset || 0) + 120;
-            var currentId = sections.get(0).id;
+        var sectionTops = [];
+        var activeId = null;
+        var navTicking = false;
 
-            sections.each(function () {
-                if (sectionDocTop(this) <= marker) {
-                    currentId = this.getAttribute("data-nav") || this.id;
-                }
+        var measureSections = function () {
+            sectionTops = sections.map(function () {
+                return { id: this.getAttribute("data-nav") || this.id, top: sectionDocTop(this) };
+            }).get();
+        };
+
+        var updateCurrent = function () {
+            navTicking = false;
+            var marker = (window.pageYOffset || 0) + 120;
+            var currentId = sectionTops.length ? sectionTops[0].id : sections.get(0).id;
+
+            sectionTops.forEach(function (s) {
+                if (s.top <= marker) currentId = s.id;
             });
 
+            if (currentId === activeId) return;
+            activeId = currentId;
             navigation_links.parent().removeClass("current");
             navigation_links.filter('[href="#' + currentId + '"]').parent().addClass("current");
         };
 
-        $WIN.on("scroll", updateCurrent);
+        $WIN.on("scroll", function () {
+            if (navTicking) return;
+            navTicking = true;
+            window.requestAnimationFrame(updateCurrent);
+        });
+        $WIN.on("resize load", function () {
+            measureSections();
+            updateCurrent();
+        });
+        measureSections();
         updateCurrent();
 
     };
@@ -444,8 +456,14 @@
             scrollSpeed = 300,   // how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
             goTopButton = $(".go-top")
 
+        var goTopShown = null;
+
         $(window).on('scroll', function () {
-            if ($(window).scrollTop() >= pxShow) {
+            var show = (window.pageYOffset || 0) >= pxShow;
+            if (show === goTopShown) return;
+            goTopShown = show;
+            goTopButton.stop(true, true);
+            if (show) {
                 goTopButton.fadeIn(fadeInTime);
             } else {
                 goTopButton.fadeOut(fadeOutTime);

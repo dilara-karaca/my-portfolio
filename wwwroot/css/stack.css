@@ -1110,6 +1110,35 @@ body.theme-dark .sparkle-field span:nth-child(30) {
 }
 
 
+/* backdrop-filter over animated sparkles/sticky sheets and full-section
+   background-position animations force repaint every frame; on real
+   scrolling Chrome can't keep up and the page flickers/shakes. */
+.s-header,
+.s-header.sticky,
+.contact__panel {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+.contact__panel {
+    background-color: rgba(255, 255, 255, 0.92);
+}
+
+body.theme-dark .contact__panel {
+    background-color: rgba(30, 24, 38, 0.92);
+}
+
+.is-stacked .stack-card--about,
+.is-stacked .stack-card--experience,
+.is-stacked .stack-card--works,
+body.theme-dark .stack-card--works {
+    animation: none;
+}
+
+.sparkle-field {
+    contain: strict;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .stack-card {
         position: relative;
