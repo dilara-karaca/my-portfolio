@@ -18,15 +18,11 @@ Canlı site: [https://dilara-karaca.netlify.app/](https://dilara-karaca.netlify.
 
 ## Ekran Görüntüleri
 
-![Ana Sayfa](screenshots/1.png)
-
-![Hakkımda Bölümü](screenshots/2.png)
-
-![Deneyimlerim Bölümü](screenshots/3.png)
-
-![Projeler Bölümü](screenshots/4.png)
-
-![Proje Detay Modalı](screenshots/5.png)
+- [Ana Sayfa](screenshots/1.png)
+- [Hakkımda Bölümü](screenshots/2.png)
+- [Deneyimlerim Bölümü](screenshots/3.png)
+- [Projeler Bölümü](screenshots/4.png)
+- [Proje Detay Modalı](screenshots/5.png)
 
 ## Kullanılan Teknolojiler
 

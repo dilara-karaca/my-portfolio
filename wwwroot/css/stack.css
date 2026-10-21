@@ -99,10 +99,16 @@
     animation: experience-wash 18s ease-in-out infinite;
 }
 
+/* Publications + contact scroll in normal flow over the pinned works sheet;
+   pinning them (taller than the viewport) made their contents jitter. */
 .is-stacked .stack-card--publications {
+    position: relative;
+    top: auto;
     background: linear-gradient(125deg, #f8f1e6 0%, #f7eef6 52%, #e7f3f1 100%);
-    background-size: 180% 180%;
-    animation: experience-wash 20s ease-in-out infinite;
+}
+
+.page-stack > .stack-card--publications + .stack-spacer {
+    display: none;
 }
 
 .is-stacked .s-contact.stack-card {
@@ -659,8 +665,7 @@ body.is-stacked .stack-card--works .works-carousel .portfolio-card-v2 {
     position: relative;
     background: #fff;
     border-color: #e6e8f2;
-    transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
-    transition: transform .18s ease-out, box-shadow .35s ease;
+    transition: box-shadow .35s ease;
 }
 
 body.is-stacked .works-carousel .portfolio-card-v2::after {
@@ -686,7 +691,6 @@ body.is-stacked .works-carousel .portfolio-card-v2:focus-within::after {
 
 body.is-stacked .works-carousel .portfolio-card-v2:hover,
 body.is-stacked .works-carousel .portfolio-card-v2:focus-within {
-    transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
     box-shadow: 0 1.8rem 3.4rem color-mix(in srgb, var(--card) 32%, transparent);
 }
 
@@ -766,8 +770,6 @@ body.theme-dark .stack-card--works {
 
 body.theme-dark .stack-card--publications {
     background: linear-gradient(125deg, #231c18 0%, #26182a 52%, #14241f 100%);
-    background-size: 180% 180%;
-    animation: experience-wash 20s ease-in-out infinite;
 }
 
 body.theme-dark .s-contact.stack-card {
@@ -871,9 +873,8 @@ body.theme-dark.is-stacked .stack-card footer a {
     }
 
     .is-stacked .stack-card--publications {
-        height: 100lvh;
-        max-height: 100lvh;
-        overflow: auto;
+        height: auto;
+        min-height: 100lvh;
     }
 
     .stack-card--about,
