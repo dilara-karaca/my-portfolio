@@ -4,7 +4,7 @@ Bu proje, yazılım geliştirme becerilerimi, projelerimi ve teknik yetkinlikler
 
 ## Canlı Demo
 
-Canlı site: [https://dilara-karaca.netlify.app/](https://dilara-karaca.netlify.app/)
+Canlı site: [https://dilara-karaca.github.io/my-portfolio](https://dilara-karaca.github.io/my-portfolio)
 
 ## Proje Özellikleri
 
@@ -14,15 +14,7 @@ Canlı site: [https://dilara-karaca.netlify.app/](https://dilara-karaca.netlify.
 - Deneyim bölümü
 - İletişim alanı
 - Responsive tasarım
-- Netlify üzerinde statik yayın desteği
-
-## Ekran Görüntüleri
-
-- [Ana Sayfa](screenshots/1.png)
-- [Hakkımda Bölümü](screenshots/2.png)
-- [Deneyimlerim Bölümü](screenshots/3.png)
-- [Projeler Bölümü](screenshots/4.png)
-- [Proje Detay Modalı](screenshots/5.png)
+- Github üzerinde statik yayın desteği
 
 ## Kullanılan Teknolojiler
 
@@ -31,7 +23,6 @@ Canlı site: [https://dilara-karaca.netlify.app/](https://dilara-karaca.netlify.
 - CSS3
 - JavaScript
 - Bootstrap
-- Netlify
 
 ## Proje Yapısı
 
@@ -40,15 +31,7 @@ Canlı site: [https://dilara-karaca.netlify.app/](https://dilara-karaca.netlify.
 - `Views/` - Razor view dosyaları
 - `ViewComponents/` - Sayfa bileşenleri
 - `wwwroot/` - Statik dosyalar, CSS, JavaScript, görseller ve Netlify için statik `index.html`
-- `screenshots/` - README içinde gösterilecek proje ekran görüntüleri
 
-## Yerelde Çalıştırma
-
-ASP.NET Core MVC uygulamasını yerelde çalıştırmak için:
-
-```bash
-dotnet run
-```
 
 ## Amaç
 
