@@ -1487,6 +1487,30 @@ It has been optimized to work smoothly on both desktop and mobile devices.</p>
     </script>
     <script>
         (function () {
+            var cards = document.querySelectorAll(".page-stack .stack-card");
+
+            function fitStickyTops() {
+                var vh = window.innerHeight;
+                cards.forEach(function (card) {
+                    if (getComputedStyle(card).position !== "sticky") {
+                        card.style.top = "";
+                        return;
+                    }
+                    card.style.top = Math.min(0, vh - card.offsetHeight) + "px";
+                });
+            }
+
+            fitStickyTops();
+            window.addEventListener("load", fitStickyTops);
+            window.addEventListener("resize", fitStickyTops);
+            if ("ResizeObserver" in window) {
+                var ro = new ResizeObserver(fitStickyTops);
+                cards.forEach(function (card) { ro.observe(card); });
+            }
+        })();
+    </script>
+    <script>
+        (function () {
             function stackScrollTop(target) {
                 var card = target.closest(".stack-card") || target;
                 var stack = card.closest(".page-stack");
