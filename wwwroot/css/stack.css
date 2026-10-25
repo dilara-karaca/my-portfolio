@@ -1162,9 +1162,24 @@ body.theme-dark.is-stacked .stack-card footer a {
     }
 
     .is-stacked .s-contact.stack-card {
-        padding-bottom: 2.4rem !important;
+        /* 100lvh is taller than the visible phone screen, and the
+           decorative ::after hangs 140px below. Together they leave a
+           blank band under the last sheet. Match the visible viewport
+           and clip that decoration so the sheet ends at the screen. */
+        min-height: 100svh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden !important;
         margin-top: 0;
+        margin-bottom: 0;
+        padding-bottom: max(1.6rem, env(safe-area-inset-bottom)) !important;
         isolation: auto;
+    }
+
+    .is-stacked .s-contact.stack-card footer {
+        margin-top: auto;
+        padding: 2rem 0 0.4rem;
     }
 
     .is-stacked .stack-card footer {
