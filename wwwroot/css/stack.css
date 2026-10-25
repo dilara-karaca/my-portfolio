@@ -813,53 +813,256 @@ body.theme-dark.is-stacked .stack-card footer a {
     }
 }
 
+/* Mobile: drop sticky stacking so taller-than-viewport sheets
+   are fully scrollable instead of clipped under the next card. */
 @media only screen and (max-width: 800px) {
-    .stack-spacer {
-        height: 42vh;
+    html,
+    body {
+        overflow-x: hidden;
+        max-width: 100%;
     }
 
-    .is-stacked .s-home .home-content,
-    .is-stacked .home-social,
+    .stack-spacer,
+    .stack-hold__runway {
+        display: none !important;
+        height: 0 !important;
+    }
+
+    .stack-card,
+    .is-stacked .stack-card,
+    .is-stacked .s-home.stack-card,
     .is-stacked .s-about.stack-card,
     .is-stacked .stack-card--experience,
     .is-stacked .s-works.stack-card,
     .is-stacked .stack-card--publications,
     .is-stacked .s-contact.stack-card {
-        width: auto;
-        padding-left: 2.4rem;
-        padding-right: 2.4rem;
-    }
-
-    .is-stacked .home-social {
-        width: auto;
-        margin: 2rem 0 0;
-        flex-wrap: wrap;
-    }
-
-    .is-stacked .home-content h1 {
-        font-size: 4.2rem;
+        position: relative !important;
+        top: auto !important;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+        justify-content: flex-start !important;
+        filter: none;
+        box-shadow: none;
+        border-radius: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 8.8rem 2rem 4rem !important;
     }
 
     .is-stacked .s-home.stack-card {
-        padding-left: 2.4rem;
-        padding-right: 2.4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center !important;
+        min-height: 100svh !important;
+        height: auto !important;
+        padding: 7.2rem 2.4rem 3.6rem !important;
+    }
+
+    .is-stacked .s-home .home-content {
+        display: block;
+        width: 100%;
+        max-width: 34rem;
+        height: auto;
+        margin: 0;
+        padding: 0 !important;
+        vertical-align: top;
+    }
+
+    .is-stacked .s-home .home-content,
+    .is-stacked .home-social {
+        padding-left: 0;
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    /* Theme template hides socials under 400px — keep them in stacked layout. */
+    .is-stacked .home-social {
+        display: flex !important;
+        position: static !important;
+        padding-bottom: 0 !important;
+    }
+
+    .is-stacked .home-social::after {
+        display: none !important;
+    }
+
+    .is-stacked .s-works {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .is-stacked .s-contact {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .is-stacked .s-about {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
     }
 
     .is-stacked .s-home .home-content__main {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
         text-align: left;
+        gap: 0;
+    }
+
+    .is-stacked .home-content h3 {
+        margin: 0 0 1.2rem !important;
+        padding-left: 3.6rem;
+        font-size: 1.35rem;
+        letter-spacing: 0.28rem;
+    }
+
+    .is-stacked .home-content h3::before {
+        width: 2.6rem;
+    }
+
+    .is-stacked .home-content h1 {
+        margin: 0;
+        font-size: clamp(3.4rem, 9.5vw, 4.4rem);
+        line-height: 1.12;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .is-stacked .home-content__subtitle {
+        margin-top: 1rem;
+        font-size: clamp(1.45rem, 3.8vw, 1.7rem);
+        line-height: 1.4;
+        letter-spacing: 0.02rem;
+    }
+
+    .is-stacked .home-content__tagline {
+        display: block;
+        margin-top: 1.2rem;
+        max-width: 28rem;
+        font-size: clamp(1.35rem, 3.6vw, 1.55rem);
+        line-height: 1.55;
+        opacity: 0.88;
     }
 
     .is-stacked .home-content__buttons {
         position: static;
+        display: flex;
         flex-direction: column;
         align-items: stretch;
-        width: 100%;
-        margin-top: 2.4rem;
+        align-self: flex-start !important;
+        justify-self: start !important;
+        width: min(100%, 22rem);
+        max-width: 100%;
+        margin: 2.8rem 0 0;
+        gap: 1rem;
+        text-align: left;
     }
 
     .is-stacked .home-content__buttons .btn {
         width: 100%;
+        min-width: 0;
+        margin: 0;
+        box-sizing: border-box;
+        padding-top: 1.15rem !important;
+        padding-bottom: 1.15rem !important;
+        font-size: 1.15rem;
+        letter-spacing: 0.16rem;
+    }
+
+    .is-stacked .home-social {
+        width: auto;
+        max-width: 100%;
+        margin: 2.8rem 0 0;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.4rem 1.8rem;
+    }
+
+    .is-stacked .home-social li {
+        height: auto;
+    }
+
+    .is-stacked .home-social a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        width: auto;
+        height: auto;
+        min-height: 3.2rem;
+    }
+
+    .is-stacked .home-social i,
+    .is-stacked .home-social span {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        line-height: 1;
+    }
+
+    .is-stacked .home-social i {
+        font-size: 1.55rem;
+        right: auto;
+    }
+
+    .is-stacked .home-social span {
+        right: auto;
+        font-size: 1.15rem;
+        letter-spacing: 0.04rem;
+    }
+
+    .is-stacked .home-content__scroll {
+        position: static;
+        margin: 2.4rem 0 0;
+    }
+
+    .is-stacked .home-content__scroll a {
+        font-size: 1rem;
+        letter-spacing: 0.22rem;
+        opacity: 0.75;
+    }
+
+    .is-stacked .stack-card .section-intro h1,
+    .is-stacked .stack-card--experience h1,
+    .is-stacked .stack-card--works .section-intro h1 {
+        font-size: clamp(2.8rem, 9vw, 3.6rem);
+        line-height: 1.15;
+        word-wrap: break-word;
+        overflow-wrap: anywhere;
+    }
+
+    .is-stacked .stack-card .lead {
+        font-size: 1.5rem;
+        line-height: 1.55;
+    }
+
+    .is-stacked .stack-card .section-intro {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 2rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .is-stacked .stack-card .row,
+    .is-stacked .stack-card .portfolio-grid-v2,
+    .is-stacked .stack-card .contact__main,
+    .is-stacked .experience-grid,
+    .is-stacked .stack-card--about .about-content,
+    .is-stacked .stack-card--about .about-content--buttons {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        box-sizing: border-box;
     }
 
     .is-stacked .stack-card--about .about-content,
@@ -867,22 +1070,149 @@ body.theme-dark.is-stacked .stack-card footer a {
         display: block;
     }
 
+    .is-stacked .stack-card--about .about-content .col-six,
     .is-stacked .stack-card--about .col-six {
+        float: none;
         width: 100%;
+        max-width: 100%;
+        margin-bottom: 2rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .is-stacked .stack-card--about .about-content:not(.about-content--buttons) {
+        margin-top: 1.6rem;
+    }
+
+    .is-stacked .about-content--buttons {
+        margin-top: 1.2rem;
+    }
+
+    .is-stacked .about-content--buttons .btn {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .is-stacked .experience-grid {
+        margin-top: 1.2rem;
+        gap: 1.6rem;
+    }
+
+    .is-stacked .s-works.stack-card {
+        padding-left: 1.2rem !important;
+        padding-right: 1.2rem !important;
+        overflow: visible !important;
+    }
+
+    .is-stacked .stack-card--works .section-intro {
+        width: 100%;
+        padding: 0 0.8rem;
         margin-bottom: 1.6rem;
     }
 
-    .is-stacked .stack-card--publications {
-        height: auto;
-        min-height: 100lvh;
+    .works-carousel {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 3.6rem;
     }
 
-    .stack-card--about,
-    .stack-card--experience,
-    .s-contact.stack-card {
-        height: auto;
-        min-height: 100lvh;
-        overflow: visible;
+    .works-carousel__page {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+        padding: 0.2rem;
+    }
+
+    .works-carousel__nav {
+        width: 3.2rem;
+        height: 3.2rem;
+        margin-top: -1.6rem;
+    }
+
+    .works-carousel__nav--prev { left: 0.2rem; }
+    .works-carousel__nav--next { right: 0.2rem; }
+
+    .works-carousel__viewport::after {
+        width: 2.4rem;
+    }
+
+    .is-stacked .stack-card--works .works-carousel .portfolio-card-v2 {
+        min-height: 0;
+    }
+
+    .is-stacked .stack-card--works .works-carousel .portfolio-card-v2__top {
+        min-height: 4.8rem;
+        padding: 0.7rem 1rem;
+        font-size: 1.8rem;
+    }
+
+    .is-stacked .stack-card--works .works-carousel .portfolio-card-v2__body {
+        padding: 1rem 1.2rem 0.2rem;
+    }
+
+    .is-stacked .stack-card--works .works-carousel .portfolio-card-v2__title {
+        font-size: 1.4rem;
+    }
+
+    .is-stacked .stack-card--works .works-carousel .portfolio-card-v2__desc {
+        -webkit-line-clamp: 3;
+        font-size: 1.15rem;
+    }
+
+    .is-stacked .stack-card--works .works-carousel .portfolio-card-v2__footer {
+        padding: 0.5rem 1.2rem 1rem;
+    }
+
+    .is-stacked .s-contact.stack-card {
+        padding-bottom: 2.4rem !important;
+        margin-top: 0;
+        isolation: auto;
+    }
+
+    .is-stacked .stack-card footer {
+        padding: 2rem 0 0.4rem;
+        margin-top: 1.6rem;
+    }
+
+    .sparkle-field {
+        contain: paint;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .stack-card,
+    .is-stacked .stack-card,
+    .is-stacked .s-about.stack-card,
+    .is-stacked .stack-card--experience,
+    .is-stacked .s-works.stack-card,
+    .is-stacked .stack-card--publications,
+    .is-stacked .s-contact.stack-card {
+        padding-left: 1.8rem !important;
+        padding-right: 1.8rem !important;
+    }
+
+    .is-stacked .s-home.stack-card {
+        padding: 6.8rem 2rem 3.2rem !important;
+    }
+
+    .is-stacked .s-works.stack-card {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .works-carousel {
+        padding: 0 3.2rem;
+    }
+
+    .is-stacked .s-home .home-content {
+        max-width: 100%;
+    }
+
+    .is-stacked .home-content h1 {
+        font-size: clamp(3.2rem, 9vw, 3.9rem);
+    }
+
+    .is-stacked .home-content__buttons {
+        width: min(100%, 20rem);
     }
 }
 
