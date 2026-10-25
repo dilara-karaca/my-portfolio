@@ -319,42 +319,6 @@
             .publication-card__venue {
                 font-size: 1.7rem;
             }
-
-            .project-modal {
-                padding: 1.2rem;
-                align-items: flex-end;
-            }
-
-            .project-modal__dialog {
-                width: 100%;
-                max-height: min(92vh, 92dvh);
-                border-radius: 1.2rem 1.2rem 0 0;
-            }
-
-            .project-readme {
-                padding: 3.6rem 1.8rem 2.4rem;
-                border-radius: 1.4rem;
-            }
-
-            .project-readme h1 {
-                font-size: 2.4rem;
-                padding-right: 2.4rem;
-            }
-
-            .project-readme h2 {
-                font-size: 1.7rem;
-            }
-
-            .project-readme p,
-            .project-readme li {
-                font-size: 1.4rem;
-            }
-
-            .project-modal__close {
-                top: 1.2rem;
-                right: 1.4rem;
-                font-size: 2.6rem;
-            }
         }
 
         .portfolio-card-v2 {
@@ -615,6 +579,44 @@
             color: #fff !important;
         }
 
+        @media only screen and (max-width: 800px) {
+            .project-modal {
+                padding: 1.2rem;
+                align-items: flex-end;
+            }
+
+            .project-modal__dialog {
+                width: 100%;
+                max-height: min(92vh, 92dvh);
+                border-radius: 1.2rem 1.2rem 0 0;
+            }
+
+            .project-readme {
+                padding: 3.6rem 1.8rem 2.4rem;
+                border-radius: 1.4rem;
+            }
+
+            .project-readme h1 {
+                font-size: 2.4rem;
+                padding-right: 2.4rem;
+            }
+
+            .project-readme h2 {
+                font-size: 1.7rem;
+            }
+
+            .project-readme p,
+            .project-readme li {
+                font-size: 1.4rem;
+            }
+
+            .project-modal__close {
+                top: 1.2rem;
+                right: 1.4rem;
+                font-size: 2.6rem;
+            }
+        }
+
         @media only screen and (max-width: 700px) {
             .portfolio-card-v2 {
                 height: auto;
@@ -633,7 +635,7 @@
 
     <script src="hola-master/js/modernizr.js"></script>
 
-    <link rel="stylesheet" href="css/stack.css?v=32">
+    <link rel="stylesheet" href="css/stack.css?v=35">
 
     <link rel="shortcut icon" href="assets/dk.icon.png" type="image/png">
     <link rel="icon" href="assets/dk.icon.png" type="image/png">
@@ -1604,6 +1606,47 @@ It has been optimized to work smoothly on both desktop and mobile devices.</p>
                     }
                 }, true);
             });
+        })();
+    </script>
+    <script>
+        (function () {
+            var stack = document.querySelector(".page-stack");
+            if (!stack || !window.matchMedia) return;
+
+            var mobileQuery = window.matchMedia("(max-width: 800px)");
+            var reduceQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+            var cards = stack.querySelectorAll(":scope > .stack-card");
+
+            function viewHeight() {
+                return window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            }
+
+            function fitStickyTops() {
+                var pin = mobileQuery.matches && !reduceQuery.matches;
+                var view = viewHeight();
+
+                cards.forEach(function (card) {
+                    if (!pin || window.getComputedStyle(card).position !== "sticky") {
+                        if (card.style.top) card.style.top = "";
+                        return;
+                    }
+
+                    var extra = card.offsetHeight - view;
+                    var next = extra > 1 ? (-extra) + "px" : "0px";
+                    if (card.style.top !== next) card.style.top = next;
+                });
+            }
+
+            fitStickyTops();
+            window.addEventListener("resize", fitStickyTops);
+            window.addEventListener("load", fitStickyTops);
+            if (mobileQuery.addEventListener) mobileQuery.addEventListener("change", fitStickyTops);
+            if (reduceQuery.addEventListener) reduceQuery.addEventListener("change", fitStickyTops);
+            if (window.visualViewport) window.visualViewport.addEventListener("resize", fitStickyTops);
+            if (window.ResizeObserver) {
+                var observer = new ResizeObserver(fitStickyTops);
+                cards.forEach(function (card) { observer.observe(card); });
+            }
         })();
     </script>
     <script>

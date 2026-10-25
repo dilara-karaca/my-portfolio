@@ -813,16 +813,21 @@ body.theme-dark.is-stacked .stack-card footer a {
     }
 }
 
-/* Mobile: drop sticky stacking so taller-than-viewport sheets
-   are fully scrollable instead of clipped under the next card. */
+/* Mobile keeps the sticky stack. Tall sheets get a negative top from
+   script (100svh - height) so they stick only after their last line
+   has scrolled into view — top:0 would hide that tail under the next card.
+   overflow stays visible so clip/hidden cannot cut the box. */
 @media only screen and (max-width: 800px) {
+    /* height:100% (theme) + overflow-x:hidden turns the body into a
+       viewport-sized scrollport, so window scroll never reaches the
+       rest of a section. clip stops sideways overflow without that. */
     html,
     body {
-        overflow-x: hidden;
+        height: auto;
         max-width: 100%;
+        overflow-x: clip;
     }
 
-    .stack-spacer,
     .stack-hold__runway {
         display: none !important;
         height: 0 !important;
@@ -836,15 +841,9 @@ body.theme-dark.is-stacked .stack-card footer a {
     .is-stacked .s-works.stack-card,
     .is-stacked .stack-card--publications,
     .is-stacked .s-contact.stack-card {
-        position: relative !important;
-        top: auto !important;
         height: auto !important;
-        min-height: 0 !important;
         overflow: visible !important;
-        justify-content: flex-start !important;
-        filter: none;
-        box-shadow: none;
-        border-radius: 0;
+        justify-content: flex-start;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
@@ -1212,7 +1211,7 @@ body.theme-dark.is-stacked .stack-card footer a {
     }
 
     .is-stacked .home-content__buttons {
-        width: min(100%, 20rem);
+        width: min(100%, 22rem);
     }
 }
 
