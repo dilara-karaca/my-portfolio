@@ -1718,14 +1718,14 @@ body.theme-dark .theme-toggle__icon {
 }
 
 body.theme-dark .theme-toggle::before {
-    content: "☀";
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 20px;
+    height: 20px;
     transform: translate(-50%, -50%);
-    font-size: 2rem;
-    line-height: 1;
-    color: #d6a3bf;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='3.15' fill='%23e4c5d6'/%3E%3Cg stroke='%23e4c5d6' stroke-width='1.7' stroke-linecap='round'%3E%3Cpath d='M12 2.2v2.7M12 19.1v2.7M2.2 12h2.7M19.1 12h2.7M5.05 5.05l1.9 1.9M17.05 17.05l1.9 1.9M18.95 5.05l-1.9 1.9M6.95 17.05l-1.9 1.9'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .header-nav {
